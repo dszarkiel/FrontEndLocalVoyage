@@ -10,7 +10,7 @@ body {
   margin: 0;
 }
 
-.signin-card {
+.sign-in-card {
   width: 450px;
   height: 460px;
   margin: 50px auto;
@@ -31,4 +31,24 @@ body {
 /* Change the link color to #111 (black) on hover */
 .nav-link:hover {
   background-color: blue;
+}
+
+div#welcome-screen {
+  display: block;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  height: auto;
+  /* display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%; */
+}
+
+.welcome-image {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-left: center;
+  margin-right: center;
 }
