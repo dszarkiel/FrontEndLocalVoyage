@@ -6,11 +6,27 @@
   background-color: #333;
 }
 
+.user-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
 body {
   margin: 0;
 }
 
 .sign-in-card {
+  width: 450px;
+  height: 460px;
+  margin: 50px auto;
+  padding: 30px;
+  border: 1px solid #141415;
+  border-radius: 19px;
+}
+.sign-up-card {
   width: 450px;
   height: 460px;
   margin: 50px auto;
@@ -49,6 +65,17 @@ div#welcome-screen {
   display: block;
   max-width: 100%;
   height: auto;
-  margin-left: center;
-  margin-right: center;
+  margin: auto;
+}
+
+div.sign-up-card {
+  text-align: center
+}
+
+div.sign-in-card {
+  text-align: center
+}
+
+.input-text {
+  width: 300px;
 }

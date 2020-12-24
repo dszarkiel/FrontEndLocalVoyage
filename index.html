@@ -10,29 +10,49 @@
   <body>
     <header>
       <div>
+
         <ul class = "nav">
           <li id="sign-in" class="nav-link">Sign In</li>
-          <li class = "nav-link">Create Account</li>
+          <li id="sign-up" class = "nav-link">Create Account</li>
         </ul>
+
+        <ul class = "user-nav" hidden=true>
+          <li id="account-view" class="nav-link">Account</li>
+          <li id="sign-out" class = "nav-link">Log Out</li>
+        </ul>
+
       </div>
     </header>
     
+
+
     <div id="welcome-screen" hidden=false>
       <h3>hello</h3>
       <img src="./assets/images/ChicagoMap.png" width="1600" height="900" class="welcome-image">
     </div>
-
-    <div class="sign-in-card" hidden=true>
     
+    <div class="sign-in-card" hidden=true>
       <form class="sign-in-form">
-      <input type="text" name="email" placeholder="Please enter your email" class="input-text"/>
+      <h3>Please enter your email address:<br></h3>
+      <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br>
       <input type="submit" name="submit" value="Sign In"/>
+      </form>
+    </div>
+
+    <div class="sign-up-card" hidden=true>
+      <form class="sign-up-form">
+        <h3>First Name:<br></h3>
+        <input type="text" name="first-name" placeholder="Please enter your first name" class="input-text"/><br>
+        <h3>Last Name:<br></h3>
+        <input type="text" name="last-name" placeholder="Please enter your last name" class="input-text"/><br>
+        <h3>Email Address:<br></h3> 
+        <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br>
+        <input type="submit" name="submit" value="Create Account"/>
       </form>
     </div>
     
     <main>
     </main>
-
 
   </body>
 </html>
