@@ -1,6 +1,14 @@
+let CURRENT_USER = ""
 
-fetch("http://localhost:3000/users/7")
-    .then(response => response.json())
-    .then(user => {
-        console.log(user)
-    })
+let signIn = document.querySelector("#signin")
+
+
+signIn.addEventListener("click", () => {
+    showSignInDiv()
+})
+
+function showSignInDiv() {
+    let signInDiv = document.querySelector(".signin-card")
+    
+    signInDiv.hidden = false
+}
