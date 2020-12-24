@@ -28,7 +28,7 @@ signInForm.addEventListener("submit", submitSignIn)
 function submitSignIn(e){
     e.preventDefault()
     let userEmail = e.target["email"].value
-    if allUsers.find(user ==>)
+
 }
 
 function fetchAllUsers(){
