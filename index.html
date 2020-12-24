@@ -6,16 +6,24 @@
     <link rel="stylesheet" href="./css/styles.css">
     <script defer src="./js/index.js"></script>
   </head>
+  
   <body>
-
-    <div>
-      <ul class = "nav">
-        <li id="signin" class="nav-link">Sign In</li>
-        <li class = "nav-link">Create Account</li>
-      </ul>
+    <header>
+      <div>
+        <ul class = "nav">
+          <li id="sign-in" class="nav-link">Sign In</li>
+          <li class = "nav-link">Create Account</li>
+        </ul>
+      </div>
+    </header>
+    
+    <div id="welcome-screen" hidden=false>
+      <h3>hello</h3>
+      <img src="./assets/images/ChicagoMap.png" width="1600" height="900" class="welcome-image">
     </div>
 
-    <div class="signin-card" hidden=true>
+    <div class="sign-in-card" hidden=true>
+    
       <form class="sign-in-form">
       <input type="text" name="email" placeholder="Please enter your email" class="input-text"/>
       <input type="submit" name="submit" value="Sign In"/>
