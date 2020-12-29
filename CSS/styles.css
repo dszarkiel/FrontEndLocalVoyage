@@ -4,6 +4,7 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  cursor: pointer;
 }
 
 .user-nav {
@@ -12,6 +13,7 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  cursor: pointer;
 }
 
 body {
@@ -21,7 +23,7 @@ body {
 .sign-in-card {
   width: 450px;
   height: 460px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 30px;
   border: 1px solid #141415;
   border-radius: 19px;
@@ -29,7 +31,7 @@ body {
 .sign-up-card {
   width: 450px;
   height: 460px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 30px;
   border: 1px solid #141415;
   border-radius: 19px;
@@ -44,9 +46,8 @@ body {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 .nav-link:hover {
-  background-color: blue;
+  background-color: #33988A;
 }
 
 div#welcome-screen {
@@ -55,10 +56,6 @@ div#welcome-screen {
   justify-content: center;
   width: auto;
   height: auto;
-  /* display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%; */
 }
 
 .welcome-image {
@@ -79,3 +76,52 @@ div.sign-in-card {
 .input-text {
   width: 300px;
 }
+
+
+
+
+
+
+
+/* DASHBOARD */
+.dashboard {
+  display: none;
+  justify-content: center;
+  max-width: 100%;
+  padding: 20px;
+  height: auto;
+  margin: 50px;
+  border: 1px solid black;
+}
+
+.google-map {
+  width: 600px;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid black;
+}
+
+.destinations-list {
+  width: 200px;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid black;
+}
+.visited {
+  height: 50%;
+}
+.not-visited {
+  height: 50%;
+
+}
+
+.show-page {
+  width: 600px;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  border: 1px solid black;
+}
+ /* END OF DASHBOARD */

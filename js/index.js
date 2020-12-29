@@ -14,6 +14,7 @@ const signInDiv = document.querySelector(".sign-in-card")
 const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
+const userDashboard = document.querySelector(".dashboard")
 
 //////////// FETCH ALL USERS IN DB //////////// 
 function fetchAllUsers(){
@@ -84,14 +85,18 @@ function submitSignUp(e) {
     .then(user => {
         renderDashboard(user)
     })
-
     logInUL.hidden = true
     userUL.hidden = false
 }
 
+
+//////////// RENDER ALL EXISTING DESTINATIONS IN DESTINATIONS LIST ////////////
+
 //////////// SHOW USER DASHBOARD //////////// 
 function renderDashboard(user) {
     currentUser = user
+    fetchDestinations();
+    userDashboard.style.display = "flex"
 }
 
 

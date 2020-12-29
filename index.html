@@ -17,8 +17,10 @@
         </ul>
 
         <ul class = "user-nav" hidden=true>
+          <li id="greeting" class="nav-link">Welcome!</li>
+          <li id="greeting" class="nav-link">Dashboard</li>
           <li id="account-view" class="nav-link">Account</li>
-          <li id="sign-out" class = "nav-link">Log Out</li>
+          <li id="sign-out" class="nav-link">Log Out</li>
         </ul>
 
       </div>
@@ -27,8 +29,7 @@
 
 
     <div id="welcome-screen" hidden=false>
-      <h3>hello</h3>
-      <img src="./assets/images/ChicagoMap.png" width="1600" height="900" class="welcome-image">
+      <img src="./assets/images/ChicagoMap.png" class="welcome-image">
     </div>
     
     <div class="sign-in-card" hidden=true>
@@ -51,8 +52,40 @@
       </form>
     </div>
     
-    <main>
-    </main>
+
+
+
+
+
+
+    <div class="dashboard" width="1600" height="900" hidden=true>
+
+      <div class="google-map" width="600" height="500px">
+      </div>
+
+      <div class="destinations-list">
+
+        <div class="not-visited">
+          <h4>Where I want to go:</h4>
+          <ul class="not-visited-ul">
+          </ul>
+        </div>
+
+        <div class="visited">
+          <h4>Places I've been to:</h4>
+          <ul class="visited-ul">
+          </ul>
+        </div>
+        
+
+      </div>
+
+      <div class="show-page">
+      </div>
+
+    </div>
+
+
 
   </body>
 </html>
