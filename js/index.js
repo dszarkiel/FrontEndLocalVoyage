@@ -92,6 +92,8 @@ function submitSignUp(e) {
 //////////// SHOW USER DASHBOARD //////////// 
 function renderDashboard(user) {
     currentUser = user
+    debugger
+    console.log(currentUser.first_name)
 }
 
 
