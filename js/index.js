@@ -124,6 +124,34 @@ function initMap() {
     center: { lat: 41.8781, lng: -87.6298 },
     zoom: 11,
   });
+
+  if (currentUser) {
+      renderMapMarker(map);
+  }
+//   renderMapMarker();
+}
+
+//////////// RENDER GOOGLE MAP AUTOCOMPLETE ADDRESS ON DASHBOARD //////////// 
+function initAutocomplete() {
+    let autocomplete;
+    autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("google-search"),
+        { types: ["establishment"] }
+      );
+
+      google.maps.event.addListener(autocomplete, "place_changed", function(){
+          nearPlace = autocomplete.getPlace();
+          document.querySelector("#address").value = nearPlace.formatted_address;
+          document.querySelector("#coordinates").value = nearPlace.geometry.location;
+      })
+}
+
+
+function renderMapMarker(map) {
+    let marker = new google.maps.Marker({
+        position:{lat:41.9093619, lng:-87.65253059999999},
+        map:map
+    })
 }
 
 //////////// SHOW USER DASHBOARD //////////// 
@@ -131,7 +159,9 @@ function renderDashboard(user) {
     currentUser = user
     userDashboard.style.display = "flex"
     initMap();
+    initAutocomplete();
     renderMyDestinations();
 }
+
 
 

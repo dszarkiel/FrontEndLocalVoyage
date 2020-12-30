@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <title>TravelLog</title>
     <link rel="stylesheet" href="./css/styles.css">
-    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFn14dEc1lJ4aSY2DqfiWtYQl9pFyGiCM&callback=initMap"></script>
     <script defer src="./js/index.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFn14dEc1lJ4aSY2DqfiWtYQl9pFyGiCM&libraries=places&callback=initMap"></script>
   </head>
   
   <body>
@@ -83,6 +83,22 @@
       </div>
 
       <div class="show-page">
+
+        <form class="new-destination-form">
+          <input type="text" name="name" placeholder="Please enter the name of your destination" class="input-text" id="google-search"/>
+          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"/>
+          <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
+          <input type="text" name="coordinates" class="input-text" id="coordinates"/>
+          <input type="text" name="category" placeholder="Category" class="input-text"/>
+          <input type="text" name="comment" placeholder="Please enter any comments" class="input-text"/>
+          <input type="text" name="visited" placeholder="Visited? Needs to be a check mark" class="input-text"/>
+          <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text"/>
+          <input type="text" name="attendees" placeholder="Who was in attendence?" class="input-text"/>
+
+          <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text"/><br>
+          <input type="submit" name="submit" value="Add Destination"/>
+        </form>
+
       </div>
 
     </div>
