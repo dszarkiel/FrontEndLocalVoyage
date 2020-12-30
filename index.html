@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>TravelLog</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFn14dEc1lJ4aSY2DqfiWtYQl9pFyGiCM&callback=initMap"></script>
     <script defer src="./js/index.js"></script>
   </head>
   
@@ -17,8 +18,10 @@
         </ul>
 
         <ul class = "user-nav" hidden=true>
+          <li id="greeting" class="nav-link">Welcome!</li>
+          <li id="greeting" class="nav-link">Dashboard</li>
           <li id="account-view" class="nav-link">Account</li>
-          <li id="sign-out" class = "nav-link">Log Out</li>
+          <li id="sign-out" class="nav-link">Log Out</li>
         </ul>
 
       </div>
@@ -26,15 +29,16 @@
     
 
 
-    <div id="welcome-screen" hidden=false> 
-      <h3>hello</h3>
-      <img src="./assets/images/ChicagoMap.png" width="1600" height="900" class="welcome-image">
+    <div id="welcome-screen" hidden=false>
+      <img src="./assets/images/ChicagoMap.png" class="welcome-image">
     </div>
     
     <div class="sign-in-card" hidden=true>
+      <h1>LOCAL VOYAGE</h1>
+      <img src="./assets/images/DoodleSkyline.jpg" width= 400px>
       <form class="sign-in-form">
       <h3>Please enter your email address:<br></h3>
-      <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br>
+      <input type="text" name="email" placeholder="Email Address" class="input-text"/><br><br>
       <input type="submit" name="submit" value="Sign In"/>
       </form>
     </div>
@@ -51,8 +55,38 @@
       </form>
     </div>
     
-    <main>
-    </main>
+
+
+
+
+
+
+    <div class="dashboard" width="1600" height="900" hidden=true>
+
+      <div class="google-maps">
+      </div>
+
+      <div class="destinations-list">
+
+        <div class="not-visited">
+          <h4>Where I want to go:</h4>
+          <ul class="not-visited-ul">
+          </ul>
+        </div>
+
+        <div class="visited">
+          <h4>Places I've been to:</h4>
+          <ul class="visited-ul">
+          </ul>
+        </div>
+        
+      </div>
+
+      <div class="show-page">
+      </div>
+
+    </div>
+
 
   </body>
 </html>

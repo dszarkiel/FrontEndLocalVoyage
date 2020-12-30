@@ -1,10 +1,11 @@
 //////////// INITIALIZE //////////// 
 fetchAllUsers();
-
+fetchAllDestinations();
 
 //////////// ALL GLOBAL VARIABLES //////////// 
 let allUsers;
 let currentUser;
+let allDestinations;
 const signIn = document.querySelector("li#sign-in")
 const signUp = document.querySelector("li#sign-up")
 const welcomeScreen = document.querySelector("div#welcome-screen")
@@ -14,6 +15,7 @@ const signInDiv = document.querySelector(".sign-in-card")
 const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
+const userDashboard = document.querySelector(".dashboard")
 
 //////////// FETCH ALL USERS IN DB //////////// 
 function fetchAllUsers(){
@@ -23,6 +25,15 @@ function fetchAllUsers(){
         allUsers = usersObj
     })
 }
+//////////// FETCH ALL DESTINATIONS IN DB //////////// 
+function fetchAllDestinations() {
+    fetch("http://localhost:3000/destinations")
+    .then(resp => resp.json())
+    .then(destObj => {
+        allDestinations = destObj
+    })
+} 
+
 
 //////////// SIGN IN LOGIC //////////// 
 signIn.addEventListener("click", () => {
@@ -84,16 +95,43 @@ function submitSignUp(e) {
     .then(user => {
         renderDashboard(user)
     })
-
     logInUL.hidden = true
     userUL.hidden = false
+}
+
+
+//////////// RENDER ALL EXISTING DESTINATIONS IN DESTINATIONS LIST ////////////
+function renderMyDestinations() {
+    let myDestinations = allDestinations.filter(dest => dest.user_id === currentUser.id)
+    let visitedUl = document.querySelector(".visited-ul")
+    let notVisitedUl = document.querySelector(".not-visited-ul")
+    myDestinations.forEach(dest => {
+        if (dest.visited === true) {
+            let visitedLi = document.createElement("li")
+            visitedLi.textContent = dest.name 
+            visitedUl.append(visitedLi)
+        } else {
+            let notVisitedLi = document.createElement("li")
+            notVisitedLi.textContent = dest.name 
+            notVisitedUl.append(notVisitedLi)
+        }
+    })
+}
+
+//////////// RENDER GOOGLE MAPS ON DASHBOARD //////////// 
+function initMap() {
+  let map = new google.maps.Map(document.querySelector(".google-maps"), {
+    center: { lat: 41.8781, lng: -87.6298 },
+    zoom: 11,
+  });
 }
 
 //////////// SHOW USER DASHBOARD //////////// 
 function renderDashboard(user) {
     currentUser = user
-    debugger
-    console.log(currentUser.first_name)
+    userDashboard.style.display = "flex"
+    initMap();
+    renderMyDestinations();
 }
 
 
