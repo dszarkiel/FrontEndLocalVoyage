@@ -89,15 +89,15 @@ div#welcome-screen {
   padding: 20px;
   height: auto;
   margin: 50px;
-  border: 1px solid black;
+  border: 1px solid #33988A;
 }
 
-.google-map {
+.google-maps {
   width: 600px;
   height: 500px;
   margin: 30px;
   padding: 20px;
-  border: 1px solid black;
+  border: 2px solid #33988A;
 }
 
 .destinations-list {
@@ -105,7 +105,7 @@ div#welcome-screen {
   height: 500px;
   margin: 30px;
   padding: 20px;
-  border: 1px solid black;
+  border: 2px solid #33988A;
 }
 .visited {
   height: 50%;
@@ -120,6 +120,6 @@ div#welcome-screen {
   height: 500px;
   margin: 30px;
   padding: 20px;
-  border: 1px solid black;
+  border: 2px solid #33988A;
 }
  /* END OF DASHBOARD */

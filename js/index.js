@@ -2,7 +2,6 @@
 fetchAllUsers();
 fetchAllDestinations();
 
-
 //////////// ALL GLOBAL VARIABLES //////////// 
 let allUsers;
 let currentUser;
@@ -119,10 +118,19 @@ function renderMyDestinations() {
     })
 }
 
+//////////// RENDER GOOGLE MAPS ON DASHBOARD //////////// 
+function initMap() {
+  let map = new google.maps.Map(document.querySelector(".google-maps"), {
+    center: { lat: 41.8781, lng: -87.6298 },
+    zoom: 11,
+  });
+}
+
 //////////// SHOW USER DASHBOARD //////////// 
 function renderDashboard(user) {
     currentUser = user
     userDashboard.style.display = "flex"
+    initMap();
     renderMyDestinations();
 }
 
