@@ -202,7 +202,6 @@ newDestinationForm.addEventListener("submit", (e) => {
 
 
 function addMarker(dest, map) {
-    if ()
     let marker = new google.maps.Marker({
         position:{lat: dest.latitude, lng: dest.longitude},
         map:map,
