@@ -1,10 +1,12 @@
 //////////// INITIALIZE //////////// 
 fetchAllUsers();
+fetchAllDestinations();
 
 
 //////////// ALL GLOBAL VARIABLES //////////// 
 let allUsers;
 let currentUser;
+let allDestinations;
 const signIn = document.querySelector("li#sign-in")
 const signUp = document.querySelector("li#sign-up")
 const welcomeScreen = document.querySelector("div#welcome-screen")
@@ -24,6 +26,15 @@ function fetchAllUsers(){
         allUsers = usersObj
     })
 }
+//////////// FETCH ALL DESTINATIONS IN DB //////////// 
+function fetchAllDestinations() {
+    fetch("http://localhost:3000/destinations")
+    .then(resp => resp.json())
+    .then(destObj => {
+        allDestinations = destObj
+    })
+} 
+
 
 //////////// SIGN IN LOGIC //////////// 
 signIn.addEventListener("click", () => {
@@ -91,12 +102,28 @@ function submitSignUp(e) {
 
 
 //////////// RENDER ALL EXISTING DESTINATIONS IN DESTINATIONS LIST ////////////
+function renderMyDestinations() {
+    let myDestinations = allDestinations.filter(dest => dest.user_id === currentUser.id)
+    let visitedUl = document.querySelector(".visited-ul")
+    let notVisitedUl = document.querySelector(".not-visited-ul")
+    myDestinations.forEach(dest => {
+        if (dest.visited === true) {
+            let visitedLi = document.createElement("li")
+            visitedLi.textContent = dest.name 
+            visitedUl.append(visitedLi)
+        } else {
+            let notVisitedLi = document.createElement("li")
+            notVisitedLi.textContent = dest.name 
+            notVisitedUl.append(notVisitedLi)
+        }
+    })
+}
 
 //////////// SHOW USER DASHBOARD //////////// 
 function renderDashboard(user) {
     currentUser = user
-    fetchDestinations();
     userDashboard.style.display = "flex"
+    renderMyDestinations();
 }
 
 

@@ -27,7 +27,12 @@ body {
   padding: 30px;
   border: 1px solid #141415;
   border-radius: 19px;
+  text-align: center;
 }
+.sign-in-form {
+  margin-top: 50px;
+}
+
 .sign-up-card {
   width: 450px;
   height: 460px;
@@ -35,6 +40,7 @@ body {
   padding: 30px;
   border: 1px solid #141415;
   border-radius: 19px;
+  text-align: center;
 }
 
 .nav-link {
@@ -63,14 +69,6 @@ div#welcome-screen {
   max-width: 100%;
   height: auto;
   margin: auto;
-}
-
-div.sign-up-card {
-  text-align: center
-}
-
-div.sign-in-card {
-  text-align: center
 }
 
 .input-text {
