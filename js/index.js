@@ -4,7 +4,7 @@
 
 //////////// ALL GLOBAL VARIABLES //////////// 
 let currentUser;
-let allUsers;
+let allDestinations;
 const signIn = document.querySelector("li#sign-in")
 const signUp = document.querySelector("li#sign-up")
 const welcomeScreen = document.querySelector("div#welcome-screen")
@@ -14,6 +14,7 @@ const signInDiv = document.querySelector(".sign-in-card")
 const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
+const userDashboard = document.querySelector(".dashboard")
 
 const container = document.querySelector(".container")
 const logOutLi = document.querySelector("#sign-out")
@@ -37,6 +38,15 @@ function fetchAllUsers(){
         
     })
 }
+//////////// FETCH ALL DESTINATIONS IN DB //////////// 
+function fetchAllDestinations() {
+    fetch("http://localhost:3000/destinations")
+    .then(resp => resp.json())
+    .then(destObj => {
+        allDestinations = destObj
+    })
+} 
+
 
 //////////// SIGN IN LOGIC //////////// 
 signIn.addEventListener("click", () => {
@@ -106,35 +116,74 @@ function submitSignUp(e) {
     .then(user => {
         renderDashboard(user)
     })
-
     logInUL.hidden = true
     userUL.hidden = false
     locationCard.hidden = true
 }
 
+
+//////////// RENDER ALL EXISTING DESTINATIONS IN DESTINATIONS LIST ////////////
+function renderMyDestinations() {
+    let myDestinations = allDestinations.filter(dest => dest.user_id === currentUser.id)
+    let visitedUl = document.querySelector(".visited-ul")
+    let notVisitedUl = document.querySelector(".not-visited-ul")
+    myDestinations.forEach(dest => {
+        if (dest.visited === true) {
+            let visitedLi = document.createElement("li")
+            visitedLi.textContent = dest.name 
+            visitedUl.append(visitedLi)
+        } else {
+            let notVisitedLi = document.createElement("li")
+            notVisitedLi.textContent = dest.name 
+            notVisitedUl.append(notVisitedLi)
+        }
+    })
+}
+
+//////////// RENDER GOOGLE MAPS ON DASHBOARD //////////// 
+function initMap() {
+  let map = new google.maps.Map(document.querySelector(".google-maps"), {
+    center: { lat: 41.8781, lng: -87.6298 },
+    zoom: 11,
+  });
+
+  if (currentUser) {
+      renderMapMarker(map);
+  }
+//   renderMapMarker();
+}
+
+//////////// RENDER GOOGLE MAP AUTOCOMPLETE ADDRESS ON DASHBOARD //////////// 
+function initAutocomplete() {
+    let autocomplete;
+    autocomplete = new google.maps.places.Autocomplete(
+        document.getElementById("google-search"),
+        { types: ["establishment"] }
+      );
+
+      google.maps.event.addListener(autocomplete, "place_changed", function(){
+          nearPlace = autocomplete.getPlace();
+          document.querySelector("#address").value = nearPlace.formatted_address;
+          document.querySelector("#coordinates").value = nearPlace.geometry.location;
+      })
+}
+
+
+function renderMapMarker(map) {
+    let marker = new google.maps.Marker({
+        position:{lat:41.9093619, lng:-87.65253059999999},
+        map:map
+    })
+}
+
 //////////// SHOW USER DASHBOARD //////////// 
-function renderDashboard(userEmail) {
-    currentUser = userEmail
-    }
-
-logOutLi.addEventListener("click", logOut)
-function logOut(e){
-    console.log(e.target)
-    welcomeScreen.style.display = "block"
-    logInUL.hidden = false
-    userUL.hidden = true
-    locationCard.hidden = true
-    container.hidden = true
+function renderDashboard(user) {
+    currentUser = user
+    userDashboard.style.display = "flex"
+    initMap();
+    initAutocomplete();
+    renderMyDestinations();
 }
 
 
-function showLocationCard(e){
-    if (e.target.tagName === "LI") {
-    console.log(e.target)
-        locationCard.hidden = false
-        locationCard.style.display = "grid"
-        commentBtn.style.display = "inline-block"
-        container.hidden = true
-    }
-}
 

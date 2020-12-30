@@ -5,6 +5,7 @@
     <title>TravelLog</title>
     <link rel="stylesheet" href="./css/styles.css">
     <script defer src="./js/index.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFn14dEc1lJ4aSY2DqfiWtYQl9pFyGiCM&libraries=places&callback=initMap"></script>
   </head>
   
   <body>
@@ -17,23 +18,32 @@
         </ul>
 
         <ul class = "user-nav" hidden=true>
-          <li id="sign-out" class = "nav-link">Log Out</li>
+          <li id="greeting" class="nav-link">Welcome!</li>
+          <li id="greeting" class="nav-link">Dashboard</li>
           <li id="account-view" class="nav-link">Account</li>
-  
+          <li id="sign-out" class="nav-link">Log Out</li>
+        </ul>
+
       </div>
     </header>
     
 
 
     <div id="welcome-screen" hidden=false>
+
       <h3></h3>
       <img src="./assets/images/ChicagoMap.png" width="1600" height="900" class="welcome-image">
+
+      <img src="./assets/images/ChicagoMap.png" class="welcome-image">
+>>>>>>> 328ccf636fa64cfc72ff6c20499f163385af4027
     </div>
     
     <div class="sign-in-card" hidden=true>
+      <h1>LOCAL VOYAGE</h1>
+      <img src="./assets/images/DoodleSkyline.jpg" width= 400px>
       <form class="sign-in-form">
       <h3>Please enter your email address:<br></h3>
-      <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br>
+      <input type="text" name="email" placeholder="Email Address" class="input-text"/><br><br>
       <input type="submit" name="submit" value="Sign In"/>
       </form>
     </div>
@@ -102,9 +112,60 @@
 
   
     
+
    <!-- ///////////// DENA  ////////////////// -->
     <main>
     </main>
+=======
+
+
+
+
+
+
+    <div class="dashboard" width="1600" height="900" hidden=true>
+
+      <div class="google-maps">
+      </div>
+
+      <div class="destinations-list">
+
+        <div class="not-visited">
+          <h4>Where I want to go:</h4>
+          <ul class="not-visited-ul">
+          </ul>
+        </div>
+
+        <div class="visited">
+          <h4>Places I've been to:</h4>
+          <ul class="visited-ul">
+          </ul>
+        </div>
+        
+      </div>
+
+      <div class="show-page">
+
+        <form class="new-destination-form">
+          <input type="text" name="name" placeholder="Please enter the name of your destination" class="input-text" id="google-search"/>
+          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"/>
+          <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
+          <input type="text" name="coordinates" class="input-text" id="coordinates"/>
+          <input type="text" name="category" placeholder="Category" class="input-text"/>
+          <input type="text" name="comment" placeholder="Please enter any comments" class="input-text"/>
+          <input type="text" name="visited" placeholder="Visited? Needs to be a check mark" class="input-text"/>
+          <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text"/>
+          <input type="text" name="attendees" placeholder="Who was in attendence?" class="input-text"/>
+
+          <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text"/><br>
+          <input type="submit" name="submit" value="Add Destination"/>
+        </form>
+
+      </div>
+
+    </div>
+
+>>>>>>> 328ccf636fa64cfc72ff6c20499f163385af4027
 
   </body>
 </html>

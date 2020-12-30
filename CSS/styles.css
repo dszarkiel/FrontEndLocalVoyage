@@ -4,6 +4,7 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  cursor: pointer;
 }
 
 .user-nav {
@@ -12,6 +13,7 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
+  cursor: pointer;
 }
 
 
@@ -22,20 +24,25 @@ body {
 .sign-in-card {
   width: 450px;
   height: 460px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 30px;
   border: 1px solid #141415;
   border-radius: 19px;
   text-align: center;
+
 }
+.sign-in-form {
+  margin-top: 50px;
+}
+
 .sign-up-card {
   width: 450px;
   height: 460px;
-  margin: 50px auto;
+  margin: 100px auto;
   padding: 30px;
   border: 1px solid #141415;
   border-radius: 19px;
-  text-align: center
+  text-align: center;
 }
 
 .nav-link {
@@ -47,9 +54,8 @@ body {
   text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
 .nav-link:hover {
-  background-color: blue;
+  background-color: #33988A;
 }
 
 div#welcome-screen {
@@ -58,10 +64,6 @@ div#welcome-screen {
   justify-content: center;
   width: auto;
   height: auto;
-  /* display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%; */
 }
 
 .welcome-image {
@@ -70,6 +72,7 @@ div#welcome-screen {
   height: auto;
   margin: auto;
 }
+
 
 #map-image{
   display: block;
@@ -181,3 +184,57 @@ hr {
   top: 5px;
   margin-left: 10px;
 }
+=======
+.input-text {
+  width: 300px;
+}
+
+
+
+
+
+
+
+/* DASHBOARD */
+.dashboard {
+  display: none;
+  justify-content: center;
+  max-width: 100%;
+  padding: 20px;
+  height: auto;
+  margin: 50px;
+  border: 1px solid #33988A;
+}
+
+.google-maps {
+  width: 600px;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  border: 2px solid #33988A;
+}
+
+.destinations-list {
+  width: 200px;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  border: 2px solid #33988A;
+}
+.visited {
+  height: 50%;
+}
+.not-visited {
+  height: 50%;
+
+}
+
+.show-page {
+  width: 600px;
+  height: 500px;
+  margin: 30px;
+  padding: 20px;
+  border: 2px solid #33988A;
+}
+ /* END OF DASHBOARD */
+>>>>>>> 328ccf636fa64cfc72ff6c20499f163385af4027
