@@ -1,10 +1,10 @@
 //////////// INITIALIZE //////////// 
-fetchAllUsers();
+
 
 
 //////////// ALL GLOBAL VARIABLES //////////// 
-let allUsers;
 let currentUser;
+let allUsers;
 const signIn = document.querySelector("li#sign-in")
 const signUp = document.querySelector("li#sign-up")
 const welcomeScreen = document.querySelector("div#welcome-screen")
@@ -15,12 +15,26 @@ const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
 
+const container = document.querySelector(".container")
+const logOutLi = document.querySelector("#sign-out")
+const locations = document.querySelector(".visited")
+locations.addEventListener("click", showLocationCard)
+const locationCard = document.querySelector(".location-card")
+locationCard.style.display = "none"
+const commentBtn = document.querySelector(".comment-section")
+
+
+fetchAllUsers();
 //////////// FETCH ALL USERS IN DB //////////// 
 function fetchAllUsers(){
     fetch("http://localhost:3000/users")
     .then(resp => resp.json())
-    .then(usersObj => {
-        allUsers = usersObj
+    .then(users => {
+        ALL_USERS = users
+        users.forEach(user => {
+            user
+        })
+        
     })
 }
 
@@ -33,24 +47,31 @@ function showSignInDiv() {
     welcomeScreen.style.display = "none"
     signInDiv.hidden = false
     signUpDiv.hidden = true
+    locationCard.style.display = "none"
 } 
+
+
 
 signInForm.addEventListener("submit", submitSignIn)
 function submitSignIn(e){
     e.preventDefault()
     let userEmail = e.target["email"].value
-    let currentUser = allUsers.find(user => user.email === userEmail)
-    if (currentUser) {
+
+    // let currentUser = allUsers.find(user => user.email === userEmail)
+    // if (currentUser) {
         console.log("was found")
         signInDiv.hidden = true
         logInUL.hidden = true
         userUL.hidden = false
-        renderDashboard(currentUser)
-    } else {
-        alert("Username does not exist!")
-        signInDiv.hidden = true
-        signUpDiv.hidden = false
-    }
+        container.hidden = false
+        locationCard.hidden = true
+
+        renderDashboard(userEmail)
+    // } else {
+    //     alert("Username does not exist!")
+    //     signInDiv.hidden = true
+    //     signUpDiv.hidden = false
+    // }
 }
 
 //////////// SIGN UP LOGIC //////////// 
@@ -62,6 +83,7 @@ function showSignUpDiv() {
     welcomeScreen.style.display = "none"
     signUpDiv.hidden = false
     signInDiv.hidden = true
+    locationCard.hidden = true
 } 
 
 signUPForm.addEventListener("submit", submitSignUp)
@@ -87,11 +109,32 @@ function submitSignUp(e) {
 
     logInUL.hidden = true
     userUL.hidden = false
+    locationCard.hidden = true
 }
 
 //////////// SHOW USER DASHBOARD //////////// 
-function renderDashboard(user) {
-    currentUser = user
+function renderDashboard(userEmail) {
+    currentUser = userEmail
+    }
+
+logOutLi.addEventListener("click", logOut)
+function logOut(e){
+    console.log(e.target)
+    welcomeScreen.style.display = "block"
+    logInUL.hidden = false
+    userUL.hidden = true
+    locationCard.hidden = true
+    container.hidden = true
 }
 
+
+function showLocationCard(e){
+    if (e.target.tagName === "LI") {
+    console.log(e.target)
+        locationCard.hidden = false
+        locationCard.style.display = "grid"
+        commentBtn.style.display = "inline-block"
+        container.hidden = true
+    }
+}
 

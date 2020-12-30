@@ -17,10 +17,9 @@
         </ul>
 
         <ul class = "user-nav" hidden=true>
-          <li id="account-view" class="nav-link">Account</li>
           <li id="sign-out" class = "nav-link">Log Out</li>
-        </ul>
-
+          <li id="account-view" class="nav-link">Account</li>
+  
       </div>
     </header>
     
@@ -50,7 +49,60 @@
         <input type="submit" name="submit" value="Create Account"/>
       </form>
     </div>
+
+    <!--  //////////////////// DENA   ////////////////////////  -->
+    <div class="container" hidden = true>
     
+    <div class="map" >
+      MAP
+      <img src= "./assets/images/GoogleMaps.jpeg" id="map-image">
+    </div>
+
+    <div class="visited" >
+      <ul>
+        <h3>Locations!</h3>
+        <li>
+          location1
+        </li>
+        <li>
+          location2
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="comment-section">
+    <button id="add-comment">Add comment</button>
+  </div>
+  
+  <div class="location-card" hidden = true>
+    <span class="close">&times;</span>
+    <h2> Location Name</h2>
+    <img src="./assets//images/sampleBar.jpg">
+    <h3 class="destination-address">Address: 1234 S drive Chicago, IL</h3>
+   <hr>
+    <ul class="destination-info">
+      <li class="destination-date">Date: 12/21/2020</li>
+      <li class="destination-cost">Cost: 100$</li>
+      <li class="destination-attendees">Attendees: Mom and Dad</li>
+      <li class="destination-rating">Rating: 3 stars</li>
+    </ul>
+    <hr>
+
+        <label class="radio">
+          <input type="radio" name="visited" value="visited"/>
+          I've already visited this place
+        </label>
+
+        <label class="radio"> 
+          <input type="radio" name="not-visited"/>
+          This place is still on my list to visit
+        </label>
+  </div>
+
+  
+    
+   <!-- ///////////// DENA  ////////////////// -->
     <main>
     </main>
 
