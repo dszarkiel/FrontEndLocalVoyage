@@ -93,7 +93,7 @@ div#welcome-screen {
 }
 
 .google-maps {
-  width: 600px;
+  width: 50%;
   height: 700px;
   margin: 10px;
   padding: 20px;
@@ -101,7 +101,7 @@ div#welcome-screen {
 }
 
 .destinations-list {
-  width: 400px;
+  width: 50%;
   height: 700px;
   margin: 10px;
   padding: 20px;
@@ -116,15 +116,67 @@ div#welcome-screen {
   overflow-y: auto;
 }
 
-.show-page {
-  width: 400px;
+.destination-form {
+  width: 50%;
   height: 700px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
 }
 
+.destination-form .input-text {
+  margin-top: 10px;
+  padding-top: 5px;
+  }
+
+.destination-form #submitbtn {
+  background-color: #33988A;
+  padding: 10px;
+  margin-left: 70px;
+  margin-top: 20px;
+  font-family: fantasy;
+  font-size: 20px;
+}
+
+/* .show-card {
+  width: 50%;
+  height: 700px;
+  margin: 10px;
+  padding: 20px;
+  border: 2px solid #33988A;
+} */
+
+.show-card {
+  overflow-y: auto;
+  text-align: center;
+  border: 2px solid #33988A;
+  padding: 20px;
+  width: 50%;
+  height: 700px;
+  margin: 10px;
+  box-shadow: 3px 4px #e04b52
+}
+
 li {
   cursor: pointer;
 }
  /* END OF DASHBOARD */
+
+ hr {
+  width:100%; 
+  height:1px; 
+  background: #fff 
+}
+
+.show-card span {
+  float: right;
+  text-align: right;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 15px;
+}
+
+.show-card span:hover {
+  color: red;
+}
+

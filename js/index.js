@@ -26,7 +26,13 @@ const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
 const userDashboard = document.querySelector(".dashboard")
-const newDestinationForm = document.querySelector(".new-destination-form")
+const newDestinationForm = document.querySelector("form.new-destination-form")
+const destinationFormDiv = document.querySelector("div.destination-form")
+const showCard = document.querySelector("div.show-card")
+const createNewBtn = document.querySelector("button.create-new-destination-btn")
+const destinationList = document.querySelector("div.destinations-list")
+const cancelFormBtn = document.querySelector("button.cancelFormBtn")
+
 
 //////////// FETCH ALL USERS IN DB //////////// 
 function fetchAllUsers(){
@@ -119,11 +125,15 @@ function renderMyDestinations() {
     myDestinations.forEach(dest => {
         if (dest.visited === true) {
             let visitedLi = document.createElement("li")
-            visitedLi.textContent = dest.name 
+            visitedLi.textContent = dest.name
+            visitedLi.dataset.destId = dest.id
+            visitedLi.addEventListener("click", renderCard)
             visitedUl.append(visitedLi)
         } else {
             let notVisitedLi = document.createElement("li")
             notVisitedLi.textContent = dest.name 
+            notVisitedLi.dataset.destId = dest.id
+            notVisitedLi.addEventListener("click", renderCard)
             notVisitedUl.append(notVisitedLi)
         }
     })
@@ -151,6 +161,7 @@ function initAutocomplete() {
 
       google.maps.event.addListener(autocomplete, "place_changed", function(){
           nearPlace = autocomplete.getPlace();
+          document.querySelector("#name").value = nearPlace.name;
           document.querySelector("#address").value = nearPlace.formatted_address;
           document.querySelector("#latitude").value = nearPlace.geometry.location.lat();
           document.querySelector("#longitude").value = nearPlace.geometry.location.lng();
@@ -199,22 +210,52 @@ newDestinationForm.addEventListener("submit", (e) => {
         addNewDestination(dest)
     })
     newDestinationForm.reset() 
+    destinationList.hidden = false
+    destinationFormDiv.hidden = true
+
 })
 
 
 function addMarker(dest, map) {
-    let marker = new google.maps.Marker({
-        position:{lat: dest.latitude, lng: dest.longitude},
-        map:map,
-    })
+   
+    if (dest.visited === true){
+        let marker = new google.maps.Marker({
+            position:{lat: dest.latitude, lng: dest.longitude},
+            map:map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+        })
 
-    let infoWindow = new google.maps.InfoWindow({
-        content: dest.name
-    })
+        let objectDetails =`<h4 id="firstHeading" class="firstHeading">${dest.name}</h4>` + 
+        `<p><strong>Address:</strong> ${dest.address}</p>` +
+        '<p><strong>Visited?</strong> &#9989;</p>'
+    
+        let infoWindow = new google.maps.InfoWindow({
+            content: objectDetails
+        })
 
-    marker.addListener("click", () => {
-        infoWindow.open(map, marker)
-    })
+        marker.addListener("click", () => {
+            infoWindow.open(map, marker)
+        })
+    } else {
+        let marker = new google.maps.Marker({
+            position:{lat: dest.latitude, lng: dest.longitude},
+            map:map,
+            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+        })
+
+        let objectDetails =`<h4 id="firstHeading" class="firstHeading">${dest.name}</h4>` + 
+        `<p><strong>Address:</strong> ${dest.address}</p>` +
+        '<p><strong>Visited?</strong> &#10060;</p>'
+    
+        let infoWindow = new google.maps.InfoWindow({
+            content: objectDetails
+        })
+
+        marker.addListener("click", () => {
+            infoWindow.open(map, marker)
+        })
+    }
+        
 }
 
 //////////SAM ADDED //////////
@@ -224,12 +265,81 @@ function addNewDestination(dest) {
     if (dest.visited === true) {
         let visitedLi = document.createElement("li")
         visitedLi.textContent = dest.name 
+        visitedLi.dataset.destId = dest.id
+        visitedLi.addEventListener("click", renderCard)
         visitedUl.append(visitedLi)
     } else {
         let notVisitedLi = document.createElement("li")
         notVisitedLi.textContent = dest.name 
+        notVisitedLi.dataset.destId = dest.id
+        notVisitedLi.addEventListener("click", renderCard)
         notVisitedUl.append(notVisitedLi)
         }
 }
 
- 
+ createNewBtn.addEventListener("click", renderNewForm)
+
+ function renderNewForm(){
+    destinationList.hidden = true
+    destinationFormDiv.hidden = false
+ }
+
+ cancelFormBtn.addEventListener("click", () => {
+    newDestinationForm.reset() 
+    destinationList.hidden = false
+    destinationFormDiv.hidden = true
+ })
+
+ //////////// RENDER DESTINATION CARD///////////
+function renderCard(e) {
+    const id = e.target.dataset.destId
+
+    fetch(`http://localhost:3000/destinations/${id}`)
+    .then(response => response.json())
+    .then(destination => makeNewDestCard(destination))
+}
+///////// MAKE DESTINATION CARD //////////////
+function makeNewDestCard(destination){
+
+    const exitBtn = document.createElement("span")
+    exitBtn.innerText = "X"
+    exitBtn.addEventListener("click", exitOut)
+
+    const name = document.createElement('h2')
+    name.innerText = destination.name
+    const img = document.createElement('img')
+    img.src = "AddImahe"
+    const dateVisited = document.createElement('h3')
+    dateVisited.innerText = destination.date_visited
+    const address = document.createElement('p')
+    address.innerText = ` Address: ${destination.address}`
+    const category = document.createElement('p')
+    category.innerText = `Category: ${destination.category}`
+    const comment = document.createElement('p')
+    comment.innerText = `Comments: ${destination.comment}`
+    const visited = document.createElement('p')
+    visited.innerText = `Visited? ${destination.visited}`
+    const cost = document.createElement('p')
+    cost.innerText = `Cost: ${destination.cost}`
+    const attendees = document.createElement('p')
+    attendees.innerText = `Attendees: ${destination.attendees}`
+    const rating = document.createElement('p')
+    rating.innerText = `${destination.rating} stars`
+    const hr1 = document.createElement('hr')
+    const hr2 = document.createElement('hr')
+
+    showCard.append(exitBtn, name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating)
+    
+    destinationList.hidden = true
+    showCard.hidden = false
+
+}
+
+
+////////// EXIT OUT OF SHW CARD/////////////
+function exitOut(e){
+    console.log(e.target)
+    destinationList.hidden = false
+    showCard.hidden = true
+    showCard.innerHTML = ""
+}
