@@ -1,8 +1,9 @@
 //////////// INITIALIZE //////////// 
-
-
+fetchAllUsers();
+fetchAllDestinations();
 
 //////////// ALL GLOBAL VARIABLES //////////// 
+let allUsers;
 let currentUser;
 let allDestinations;
 const signIn = document.querySelector("li#sign-in")
@@ -15,27 +16,15 @@ const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
 const userDashboard = document.querySelector(".dashboard")
-
-const container = document.querySelector(".container")
-const logOutLi = document.querySelector("#sign-out")
-const locations = document.querySelector(".visited")
-locations.addEventListener("click", showLocationCard)
-const locationCard = document.querySelector(".location-card")
-locationCard.style.display = "none"
-const commentBtn = document.querySelector(".comment-section")
-
-
-fetchAllUsers();
+const newDestForm = document.querySelector(".new-destination-form")
+const cardDiv = document.querySelector(".destination-card")
+cardDiv.style.display = "none"
 //////////// FETCH ALL USERS IN DB //////////// 
 function fetchAllUsers(){
     fetch("http://localhost:3000/users")
     .then(resp => resp.json())
-    .then(users => {
-        ALL_USERS = users
-        users.forEach(user => {
-            user
-        })
-        
+    .then(usersObj => {
+        allUsers = usersObj
     })
 }
 //////////// FETCH ALL DESTINATIONS IN DB //////////// 
@@ -57,31 +46,26 @@ function showSignInDiv() {
     welcomeScreen.style.display = "none"
     signInDiv.hidden = false
     signUpDiv.hidden = true
-    locationCard.style.display = "none"
+    cardDiv.hidden = true
 } 
-
-
 
 signInForm.addEventListener("submit", submitSignIn)
 function submitSignIn(e){
     e.preventDefault()
     let userEmail = e.target["email"].value
-
-    // let currentUser = allUsers.find(user => user.email === userEmail)
-    // if (currentUser) {
+    let currentUser = allUsers.find(user => user.email === userEmail)
+    if (currentUser) {
         console.log("was found")
         signInDiv.hidden = true
         logInUL.hidden = true
         userUL.hidden = false
-        container.hidden = false
-        locationCard.hidden = true
-
-        renderDashboard(userEmail)
-    // } else {
-    //     alert("Username does not exist!")
-    //     signInDiv.hidden = true
-    //     signUpDiv.hidden = false
-    // }
+        cardDiv.hidden = true
+        renderDashboard(currentUser)
+    } else {
+        alert("Username does not exist!")
+        signInDiv.hidden = true
+        signUpDiv.hidden = false
+    }
 }
 
 //////////// SIGN UP LOGIC //////////// 
@@ -93,7 +77,7 @@ function showSignUpDiv() {
     welcomeScreen.style.display = "none"
     signUpDiv.hidden = false
     signInDiv.hidden = true
-    locationCard.hidden = true
+    cardDiv.hidden = true
 } 
 
 signUPForm.addEventListener("submit", submitSignUp)
@@ -118,7 +102,6 @@ function submitSignUp(e) {
     })
     logInUL.hidden = true
     userUL.hidden = false
-    locationCard.hidden = true
 }
 
 
@@ -131,14 +114,129 @@ function renderMyDestinations() {
         if (dest.visited === true) {
             let visitedLi = document.createElement("li")
             visitedLi.textContent = dest.name 
+            visitedLi.dataset.destId = dest.id
+            visitedLi.addEventListener("click", renderCard)
             visitedUl.append(visitedLi)
         } else {
             let notVisitedLi = document.createElement("li")
             notVisitedLi.textContent = dest.name 
+            notVisitedLi.addEventListener("click", renderCard)
             notVisitedUl.append(notVisitedLi)
         }
     })
 }
+
+//////////// RENDER DESTINATION CARD///////////
+function renderCard(e) {
+    const id = e.target.dataset.destId
+
+    fetch(`http://localhost:3000/destinations/${id}`)
+    .then(response => response.json())
+    .then(destination => makeNewDestCard(destination))
+}
+///////// MAKE DESTINATION CARD //////////////
+function makeNewDestCard(destination) {
+
+    const exitBtn = document.querySelector("#exit")
+    exitBtn.addEventListener("click", exitOut)
+    const showPage = document.querySelector(".show-page")
+    const name = document.createElement('h2')
+    name.innerText = destination.name
+    const img = document.createElement('img')
+    img.src = "AddImahe"
+    const dateVisited = document.createElement('h3')
+    dateVisited.innerText = destination.date_visited
+    const address = document.createElement('p')
+    address.innerText = ` Address: ${document.address}`
+    const category = document.createElement('p')
+    category.innerText = `Category: ${destination.category}`
+    const comment = document.createElement('p')
+    comment.innerText = `Comments: ${destination.comment}`
+    const visited = document.createElement('p')
+    visited.innerText = `Visited? ${destination.visited}`
+    const cost = document.createElement('p')
+    cost.innerText = `Cost: ${destination.cost}`
+    const attendees = document.createElement('p')
+    attendees.innerText = `Attendees: ${destination.attendees}`
+    const rating = document.createElement('p')
+    rating.innerText = `${destination.rating} stars`
+    const hr1 = document.createElement('hr')
+    const hr2 = document.createElement('hr')
+    cardDiv.append(name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating)
+    cardDiv.hidden = false
+    cardDiv.style.display = "block"
+    showPage.hidden = true
+    userDashboard.append(cardDiv)
+    
+}
+
+////////// EXIT OUT OF SHW CARD/////////////
+function exitOut(e){
+    console.log(e.target)
+    const showPage = document.querySelector(".show-page")
+    const cardDiv = document.querySelector(".destination-card")
+    cardDiv.hidden = true
+    showPage.hidden = false
+    cardDiv.style.display = "none"
+    userDashboard.append(showPage)
+}
+
+//////////// ADD NEW DESTINATION//////////////
+newDestForm.addEventListener("submit", addNewDestination)
+function addNewDestination(e){
+    e.preventDefault()
+    console.log(e.target)
+    const destName = document.querySelector("#google-search").value
+    const destDate = document.querySelector("#date").value
+    const destAddress = document.querySelector("#address").value
+    const destCategory = document.querySelector("#category").value
+    const destComment = document.querySelector("#comment").value
+    const destVisited = document.querySelector("#visited").value
+    const destCost = document.querySelector("#cost").value
+    const destAttendees = document.querySelector("#attendees").value
+    const destRating = document.querySelector("#rating").value
+
+    let visitedUl = document.querySelector(".visited-ul")
+    let notVisitedUl = document.querySelector(".not-visited-ul")
+    if (destVisited === true) {
+        let visitedLi = document.createElement("li")
+        visitedLi.textContent = destName 
+        visitedLi.dataset.destId = dest.id
+        visitedLi.addEventListener("click", renderCard)
+        visitedUl.append(visitedLi)
+    } else {
+        let notVisitedLi = document.createElement("li")
+        notVisitedLi.textContent = destName 
+        notVisitedLi.addEventListener("click", renderCard)
+        notVisitedUl.append(notVisitedLi)
+    }
+
+    fetch("http://localhost:3000/destinations", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            name: destName,
+            date_visited: destDate,
+            address: destAddress, 
+            category: destCategory, 
+            comment: destComment,
+            visited: destVisited,
+            cost: destCost,
+            attendees: destAttendees,
+            rating: destRating,
+            user_id: currentUser.id
+        })
+    })
+    .then(response => response.json())
+    .then(destination=> renderMyDestinations(destination))
+    
+}
+
+
+
+
 
 //////////// RENDER GOOGLE MAPS ON DASHBOARD //////////// 
 function initMap() {
@@ -184,6 +282,3 @@ function renderDashboard(user) {
     initAutocomplete();
     renderMyDestinations();
 }
-
-
-
