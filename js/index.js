@@ -194,10 +194,11 @@ newDestinationForm.addEventListener("submit", (e) => {
     })
     .then(response => response.json())
     .then(dest => {
-
         addMarker(dest, map)
-
+        //////////SAM ADDED ////////
+        addNewDestination(dest)
     })
+    newDestinationForm.reset() 
 })
 
 
@@ -205,15 +206,30 @@ function addMarker(dest, map) {
     let marker = new google.maps.Marker({
         position:{lat: dest.latitude, lng: dest.longitude},
         map:map,
-        })
+    })
 
-        let infoWindow = new google.maps.InfoWindow({
-            content: dest.name
-        })
+    let infoWindow = new google.maps.InfoWindow({
+        content: dest.name
+    })
 
-        marker.addListener("click", () => {
-            infoWindow.open(map, marker)
-        })
+    marker.addListener("click", () => {
+        infoWindow.open(map, marker)
+    })
+}
+
+//////////SAM ADDED //////////
+function addNewDestination(dest) {
+    let visitedUl = document.querySelector(".visited-ul")
+    let notVisitedUl = document.querySelector(".not-visited-ul")
+    if (dest.visited === true) {
+        let visitedLi = document.createElement("li")
+        visitedLi.textContent = dest.name 
+        visitedUl.append(visitedLi)
+    } else {
+        let notVisitedLi = document.createElement("li")
+        notVisitedLi.textContent = dest.name 
+        notVisitedUl.append(notVisitedLi)
+        }
 }
 
  

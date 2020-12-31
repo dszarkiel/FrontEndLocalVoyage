@@ -94,32 +94,37 @@ div#welcome-screen {
 
 .google-maps {
   width: 600px;
-  height: 500px;
-  margin: 30px;
+  height: 700px;
+  margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
 }
 
 .destinations-list {
-  width: 200px;
-  height: 500px;
-  margin: 30px;
+  width: 400px;
+  height: 700px;
+  margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
 }
 .visited {
-  height: 50%;
+  height: 40%;
+  overflow-y: auto;
 }
 .not-visited {
-  height: 50%;
-
+  height: 40%;
+  overflow-y: auto;
 }
 
 .show-page {
-  width: 600px;
-  height: 500px;
-  margin: 30px;
+  width: 400px;
+  height: 700px;
+  margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
+}
+
+li {
+  cursor: pointer;
 }
  /* END OF DASHBOARD */
