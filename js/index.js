@@ -120,6 +120,7 @@ function renderMyDestinations() {
         } else {
             let notVisitedLi = document.createElement("li")
             notVisitedLi.textContent = dest.name 
+            notVisitedLi.dataset.destId = dest.id
             notVisitedLi.addEventListener("click", renderCard)
             notVisitedUl.append(notVisitedLi)
         }
@@ -136,14 +137,13 @@ function renderCard(e) {
 }
 ///////// MAKE DESTINATION CARD //////////////
 function makeNewDestCard(destination) {
-
     const exitBtn = document.querySelector("#exit")
     exitBtn.addEventListener("click", exitOut)
     const showPage = document.querySelector(".show-page")
     const name = document.createElement('h2')
     name.innerText = destination.name
     const img = document.createElement('img')
-    img.src = "AddImahe"
+    img.src = "AddImage"
     const dateVisited = document.createElement('h3')
     dateVisited.innerText = destination.date_visited
     const address = document.createElement('p')
@@ -162,7 +162,11 @@ function makeNewDestCard(destination) {
     rating.innerText = `${destination.rating} stars`
     const hr1 = document.createElement('hr')
     const hr2 = document.createElement('hr')
-    cardDiv.append(name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating)
+    const editBtn = document.createElement('button')
+    editBtn.innerText = "Edit"
+    const deleteBtn = document.createElement('button')
+    deleteBtn.innerText = "Delete"
+    cardDiv.append(name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, editBtn, deleteBtn)
     cardDiv.hidden = false
     cardDiv.style.display = "block"
     showPage.hidden = true
