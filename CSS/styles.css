@@ -18,6 +18,7 @@
 
 body {
   margin: 0;
+  background-image: url("./assets/images/ChicagoMap.png");
 }
 
 .sign-in-card {
@@ -83,6 +84,7 @@ div#welcome-screen {
 
 /* DASHBOARD */
 .dashboard {
+  border-radius: 10px;
   display: none;
   justify-content: center;
   max-width: 100%;
@@ -90,52 +92,133 @@ div#welcome-screen {
   height: auto;
   margin: 50px;
   border: 1px solid #33988A;
+  background-image: linear-gradient(to right, white, #65ddd3, #11a8a1);
 }
 
 .google-maps {
-  width: 50%;
-  height: 700px;
+  border-radius: 10px;
+  width: 40%;
+  height: 500px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
+  background-color: white;
+}
+
+.google-maps .firstHeading:hover {
+  color: #33988A;
+  cursor: pointer;
 }
 
 .destinations-list {
-  width: 50%;
-  height: 700px;
+  border-radius: 10px;
+  width: 40%;
+  height: 500px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
+  background-color: white;
 }
+
+.destinations-list h4 {
+  text-align: center;
+  font-size: 20px;
+}
+
+
+
 .visited {
-  height: 40%;
+  height: 35%;
   overflow-y: auto;
+  font-size: 20px;
+  color: black;
+}
+
+.visited li:hover {
+  color: #33988A;
 }
 .not-visited {
-  height: 40%;
+  height: 35%;
   overflow-y: auto;
+  font-size: 20px;
+  color: black;
+}
+
+.not-visited li:hover {
+  color: #33988A;
+}
+
+.create-new-destination-btn {
+  background-color: #33988A;
+  padding: 20px;
+  text-align: center;
+  margin-left: 12%;
+  font-family: monospace;
+  font-size: 20px;
+  border-radius: 25px;
+}
+
+.create-new-destination-btn:hover{
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 .destination-form {
-  width: 50%;
-  height: 700px;
+  border-radius: 10px;
+  background-color: white;
+  width: 40%;
+  height: 500px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
+  text-align: left;
 }
 
 .destination-form .input-text {
-  margin-top: 10px;
-  padding-top: 5px;
-  }
+  margin-top: 20px;
+  padding: 5px;
+  text-align: left;
+}
+
+.radio:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+.destination-form .cancelFormBtn {
+  padding: 10px;
+  font-family: fantasy;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.destination-form .cancelFormBtn:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+
 
 .destination-form #submitbtn {
   background-color: #33988A;
   padding: 10px;
-  margin-left: 70px;
+  margin-left: 60px;
   margin-top: 20px;
   font-family: fantasy;
   font-size: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.destination-form #submitbtn:hover {
+-webkit-transform: scale(1.2);
+-ms-transform: scale(1.2);
+transform: scale(1.2);
 }
 
 /* .show-card {
@@ -147,14 +230,16 @@ div#welcome-screen {
 } */
 
 .show-card {
+  border-radius: 10px;
+  background-color: white;
   overflow-y: auto;
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 50%;
-  height: 700px;
+  width: 40%;
+  height: 500px;
   margin: 10px;
-  box-shadow: 3px 4px #e04b52
+  box-shadow: 3px 4px grey
 }
 
 li {
@@ -179,4 +264,6 @@ li {
 .show-card span:hover {
   color: red;
 }
+
+
 

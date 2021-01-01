@@ -62,6 +62,7 @@
 
 
     <div class="dashboard" width="1600" height="900" hidden=true>
+    
 
       <div class="google-maps">
       </div>
@@ -90,7 +91,14 @@
           <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
           <input type="text" name="category" placeholder="Category" class="input-text"/>
           <input type="text" name="comment" placeholder="Please enter any comments" class="input-text"/>
-          <input type="text" name="visited" placeholder="Visited? Needs to be a check mark" class="input-text"/>
+          <br>
+          <h3>Have you visited this location yet?</h3>
+          <input type="radio" class="radio" id="visited" name="visited" value="visited">
+          <label for="visited">Yes</label><br>
+          
+          <input type="radio" class="radio" id="not-visited" name="visited" value="not-visited" checked="checked">
+          <label for="not-visited">No</label><br>
+
           <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text"/>
           <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text"/>
           <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text"/><br>

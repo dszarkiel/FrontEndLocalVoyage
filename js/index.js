@@ -31,7 +31,25 @@ const destinationFormDiv = document.querySelector("div.destination-form")
 const showCard = document.querySelector("div.show-card")
 const createNewBtn = document.querySelector("button.create-new-destination-btn")
 const destinationList = document.querySelector("div.destinations-list")
-const cancelFormBtn = document.querySelector("button.cancelFormBtn")
+const googleMaps = document.querySelector(".google-maps")
+const cancelFormBtn = document.querySelector(".cancelFormBtn")
+
+
+//////////// EVENT LISTENER FOR GOOGLE MAPS ///////////
+googleMaps.addEventListener("click", googleMapShowCard)
+
+function googleMapShowCard(e){
+    if(e.target.tagName==="H4"){
+
+    let id = e.target.id
+
+    fetch(`http://localhost:3000/destinations/${id}`)
+    .then(response => response.json())
+    .then(destination => makeNewDestCard(destination))
+    }
+}   
+
+
 
 
 //////////// FETCH ALL USERS IN DB //////////// 
@@ -225,7 +243,7 @@ function addMarker(dest, map) {
             icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
         })
 
-        let objectDetails =`<h4 id="firstHeading" class="firstHeading">${dest.name}</h4>` + 
+        let objectDetails =`<h4 id=${dest.id} class="firstHeading">${dest.name}</h4>` + 
         `<p><strong>Address:</strong> ${dest.address}</p>` +
         '<p><strong>Visited?</strong> &#9989;</p>'
     
@@ -243,7 +261,7 @@ function addMarker(dest, map) {
             icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
         })
 
-        let objectDetails =`<h4 id="firstHeading" class="firstHeading">${dest.name}</h4>` + 
+        let objectDetails =`<h4 id=${dest.id} class="firstHeading">${dest.name}</h4>` + 
         `<p><strong>Address:</strong> ${dest.address}</p>` +
         '<p><strong>Visited?</strong> &#10060;</p>'
     
@@ -262,7 +280,7 @@ function addMarker(dest, map) {
 function addNewDestination(dest) {
     let visitedUl = document.querySelector(".visited-ul")
     let notVisitedUl = document.querySelector(".not-visited-ul")
-    if (dest.visited === true) {
+    if (dest.visited === "Yes") {
         let visitedLi = document.createElement("li")
         visitedLi.textContent = dest.name 
         visitedLi.dataset.destId = dest.id
@@ -327,12 +345,27 @@ function makeNewDestCard(destination){
     rating.innerText = `${destination.rating} stars`
     const hr1 = document.createElement('hr')
     const hr2 = document.createElement('hr')
+    const hr3 = document.createElement('hr')
+    const editBtn = document.createElement("button")
+    editBtn.innerText = "Edit Memory"
+    editBtn.dataset.id = destination.id
+    editBtn.addEventListener("click", editShowCard)
+    const deleteBtn = document.createElement("button")
+    deleteBtn.innerText = "Delete Memory"
+    deleteBtn.dataset.id = destination.id
 
-    showCard.append(exitBtn, name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating)
+    showCard.append(exitBtn, name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
     
     destinationList.hidden = true
     showCard.hidden = false
 
+}
+
+////////// EDIT SHOW CARD//////////////
+function editShowCard(e){
+    const id = e.target.dataset.id
+
+ 
 }
 
 
