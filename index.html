@@ -67,47 +67,51 @@
       </div>
 
       <div class="destinations-list">
-
+        <h4>Where I want to go:</h4>
         <div class="not-visited">
-          <h4>Where I want to go:</h4>
           <ul class="not-visited-ul">
           </ul>
         </div>
 
+        <h4>Places I've been to:</h4>
         <div class="visited">
-          <h4>Places I've been to:</h4>
           <ul class="visited-ul">
           </ul>
         </div>
-        
+        <button type="button" class="create-new-destination-btn">CREATE NEW DESTINATION </button>
       </div>
 
-      <div class="show-page">
+      <div class="destination-form" hidden=true>
 
         <form class="new-destination-form">
-          <h3 id="add-new">To add a new destination...</h3>
-          <input type="text" name="name" placeholder="Please enter the name of your destination" class="input-text" id="google-search"/>
-          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text" id="date"/>
+          <input type="text" placeholder="SEARCH" id="google-search"/>
+          <input type="text" name="name" placeholder="Name" class="input-text" id="name"/>
+          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"/>
           <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
-          <input type="text" name="coordinates" class="input-text" id="coordinates"/>
-          <input type="text" name="category" placeholder="Category" class="input-text" id="category"/>
-          <input type="text" name="comment" placeholder="Please enter any comments" class="input-text" id="comment"/>
-          <input type="text" name="visited" placeholder="Visited? Needs to be a check mark" class="input-text" id="visited"/>
-          <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text" id="cost"/>
-          <input type="text" name="attendees" placeholder="Who was in attendence?" class="input-text" id="attendees"/>
+          <input type="text" name="category" placeholder="Category" class="input-text"/>
+          <input type="text" name="comment" placeholder="Please enter any comments" class="input-text"/>
+          <input type="text" name="visited" placeholder="Visited? Needs to be a check mark" class="input-text"/>
+          <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text"/>
+          <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text"/>
+          <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text"/><br>
 
-          <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text" id="rating"/><br>
+          <input type="text" name="latitude" class="input-text" id="latitude" hidden=true/>
+          <input type="text" name="longitude" class="input-text" id="longitude" hidden=true/><br>
+
           <input id="submitbtn" type="submit" name="submit" value="Add Destination"/>
+          <button type="button" class="cancelFormBtn">Cancel</button>
         </form>
 
       </div>
   
 
+
+      <div class="show-card" hidden=true>
+        </div>
+
     </div>
 
-    <div class="destination-card" hidden=true>
-    <span id="exit">X</span>
-    </div>
+   
 
   </body>
 </html>
