@@ -153,15 +153,15 @@ div#welcome-screen {
   padding: 20px;
   text-align: center;
   margin-left: 12%;
-  font-family: monospace;
+  font-family: Helvetica, sans-serif;
   font-size: 20px;
   border-radius: 25px;
 }
 
 .create-new-destination-btn:hover{
-  -webkit-transform: scale(1.2);
+  /* -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
-  transform: scale(1.2);
+  transform: scale(1.2); */
   cursor: pointer;
 }
 
@@ -191,7 +191,7 @@ div#welcome-screen {
 
 .destination-form .cancelFormBtn {
   padding: 10px;
-  font-family: fantasy;
+  font-family: Helvetica, sans-serif;
   font-size: 15px;
   border-radius: 25px;
   cursor: pointer;
@@ -209,7 +209,7 @@ div#welcome-screen {
   padding: 10px;
   margin-left: 60px;
   margin-top: 20px;
-  font-family: fantasy;
+  font-family: Helvetica, sans-serif;
   font-size: 20px;
   border-radius: 25px;
   cursor: pointer;
@@ -244,6 +244,7 @@ transform: scale(1.2);
 
 li {
   cursor: pointer;
+  font-family: Helvetica, sans-serif;
 }
  /* END OF DASHBOARD */
 
@@ -265,5 +266,8 @@ li {
   color: red;
 }
 
+#google-search {
+  width: 100%;
+}
 
 

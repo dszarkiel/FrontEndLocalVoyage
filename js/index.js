@@ -234,8 +234,10 @@ newDestinationForm.addEventListener("submit", (e) => {
 })
 
 
+
 function addMarker(dest, map) {
-   
+    let infoWindowArray = []
+
     if (dest.visited === true){
         let marker = new google.maps.Marker({
             position:{lat: dest.latitude, lng: dest.longitude},
@@ -251,7 +253,10 @@ function addMarker(dest, map) {
             content: objectDetails
         })
 
+        infoWindowArray.push(infoWindow)
+
         marker.addListener("click", () => {
+            infoWindowArray.close();
             infoWindow.open(map, marker)
         })
     } else {
@@ -269,7 +274,10 @@ function addMarker(dest, map) {
             content: objectDetails
         })
 
+        infoWindowArray.push(infoWindow)
+
         marker.addListener("click", () => {
+            infoWindowArray.close();
             infoWindow.open(map, marker)
         })
     }
@@ -318,6 +326,7 @@ function renderCard(e) {
 }
 ///////// MAKE DESTINATION CARD //////////////
 function makeNewDestCard(destination){
+    showCard.innerHTML = ""
 
     const exitBtn = document.createElement("span")
     exitBtn.innerText = "X"
@@ -374,5 +383,5 @@ function exitOut(e){
     console.log(e.target)
     destinationList.hidden = false
     showCard.hidden = true
-    showCard.innerHTML = ""
+    // showCard.innerHTML = ""
 }
