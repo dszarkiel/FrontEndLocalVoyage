@@ -263,7 +263,6 @@ function addMarker(dest, map) {
         })
 
         marker.addListener("click", () => {
-            infoWindowArray.close();
             infoWindow.open(map, marker)
         })
     } else {
@@ -282,7 +281,6 @@ function addMarker(dest, map) {
         })
 
         marker.addListener("click", () => {
-            infoWindowArray.close();
             infoWindow.open(map, marker)
         })
     }
@@ -314,6 +312,9 @@ function addNewDestination(dest) {
     destinationList.hidden = true
     destinationFormDiv.hidden = false
     showCard.hidden = true
+    editAccountCard.hidden = true
+    editAccountForm.hidden = true
+    accountInfoCard.hidden = true
  }
 
  cancelFormBtn.addEventListener("click", () => {
@@ -373,7 +374,6 @@ function makeNewDestCard(destination){
     
     destinationList.hidden = true
     showCard.hidden = false
-
 }
 
 ////////// EDIT SHOW CARD//////////////
@@ -386,7 +386,9 @@ function editShowCard(e){
 function exitOut(e){
     destinationList.hidden = false
     showCard.hidden = true
+    // newDestinationForm.hidden = true
     accountInfoCard.hidden = true
+    editAccountCard.hidden = true
 }
 
 
@@ -397,7 +399,7 @@ accountNavBtn.addEventListener("click", () => {
 function renderAccountInfo(user) {
     accountInfoCard.hidden = false
     destinationList.hidden = true
-    newDestinationForm.hidden = true
+    destinationFormDiv.hidden = true
     showCard.hidden = true
     editAccountCard.hidden = true
 
@@ -415,6 +417,7 @@ function renderAccountInfo(user) {
 function renderEditAccountForm(){
     accountInfoCard.hidden = true
     editAccountCard.hidden = false
+    editAccountForm.hidden = false
 
     let firstNameField = document.querySelector("#edit-account-form #new-first-name")
     firstNameField.value = currentUser.first_name
@@ -422,6 +425,9 @@ function renderEditAccountForm(){
     lastNameField.value = currentUser.last_name
     let emailField = document.querySelector("#edit-account-form #new-email")
     emailField.value = currentUser.email
+
+    let exitBtn = document.querySelector("#edit-account-exit")
+    exitBtn.addEventListener("click", exitOut)
 }
 
 ////////// UPDATE ACCOUNT INFORMATION  /////////////
@@ -445,5 +451,6 @@ function updateAccount(e){
     .then(response => response.json())
     .then(newUserInfo => {
         renderAccountInfo(newUserInfo)
+        currentUser = newUserInfo
     })
 }
