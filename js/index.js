@@ -16,6 +16,7 @@ let allUsers;
 let currentUser;
 let allDestinations;
 let map;
+
 const signIn = document.querySelector("li#sign-in")
 const signUp = document.querySelector("li#sign-up")
 const welcomeScreen = document.querySelector("div#welcome-screen")
@@ -40,10 +41,27 @@ const accountInfoCard = document.querySelector(".account-info-card")
 const editAccountCard = document.querySelector(".edit-account-card")
 const editAccountForm = document.querySelector("#edit-account-form")
 
+const editDestDiv = document.querySelector(".edit-destination-div")
+const editDestForm = document.querySelector(".edit-destination-form")
+
 // ACCOUNT INFORMATION FIELDS 
 let firstName = document.querySelector(".account-info-card #first_name");
 let lastName = document.querySelector(".account-info-card #last_name");
 let email = document.querySelector(".account-info-card #email");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //////////// EVENT LISTENER FOR GOOGLE MAPS ///////////
 googleMaps.addEventListener("click", googleMapShowCard)
@@ -244,9 +262,8 @@ newDestinationForm.addEventListener("submit", (e) => {
 })
 
 
-
+////////// RENDER NEW GOOGLE MAP MARKER //////////////
 function addMarker(dest, map) {
-
     if (dest.visited === true){
         let marker = new google.maps.Marker({
             position:{lat: dest.latitude, lng: dest.longitude},
@@ -287,11 +304,11 @@ function addMarker(dest, map) {
         
 }
 
-//////////SAM ADDED //////////
+////////// ADD NEW DESTINATION TO LIST (VISITED / NOT VISITED) //////////
 function addNewDestination(dest) {
     let visitedUl = document.querySelector(".visited-ul")
     let notVisitedUl = document.querySelector(".not-visited-ul")
-    if (dest.visited === "Yes") {
+    if (dest.visited === true) {
         let visitedLi = document.createElement("li")
         visitedLi.textContent = dest.name 
         visitedLi.dataset.destId = dest.id
@@ -306,8 +323,8 @@ function addNewDestination(dest) {
         }
 }
 
+////////// RENDER CREATE NEW DESTINATION FORM //////////////
  createNewBtn.addEventListener("click", renderNewForm)
-
  function renderNewForm(){
     destinationList.hidden = true
     destinationFormDiv.hidden = false
@@ -315,6 +332,7 @@ function addNewDestination(dest) {
     editAccountCard.hidden = true
     editAccountForm.hidden = true
     accountInfoCard.hidden = true
+    editDestDiv.hidden = true
  }
 
  cancelFormBtn.addEventListener("click", () => {
@@ -341,8 +359,8 @@ function makeNewDestCard(destination){
 
     const name = document.createElement('h2')
     name.innerText = destination.name
-    const img = document.createElement('img')
-    img.src = destination.image
+    // const img = document.createElement('img')
+    // img.src = destination.image
     const dateVisited = document.createElement('h3')
     dateVisited.innerText = destination.date_visited
     const address = document.createElement('p')
@@ -362,31 +380,93 @@ function makeNewDestCard(destination){
     const hr1 = document.createElement('hr')
     const hr2 = document.createElement('hr')
     const hr3 = document.createElement('hr')
+
     const editBtn = document.createElement("button")
     editBtn.innerText = "Edit Memory"
     editBtn.dataset.id = destination.id
-    editBtn.addEventListener("click", editShowCard)
+    editBtn.addEventListener("click", fetchCurrentDest)
+
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "Delete Memory"
     deleteBtn.dataset.id = destination.id
 
-    showCard.append(exitBtn, name, img, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
+    showCard.append(exitBtn, name, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
     
     destinationList.hidden = true
     showCard.hidden = false
 }
 
-////////// EDIT SHOW CARD//////////////
-function editShowCard(e){
+////////// GET CURRENT INFO ON DEST THAT IS GETTING UPDATED //////////////
+function fetchCurrentDest(e) {
     const id = e.target.dataset.id
- 
+    showCard.hidden = true
+    editDestDiv.hidden = false
+
+    fetch(`http://localhost:3000/destinations/${id}`)
+    .then(response => response.json())
+    .then(dest => {
+        renderEditDestForm(dest)
+    })
 }
 
-////////// EXIT OUT OF SHW CARD/////////////
+////////// GRAB ALL FORM FIELDS FROM UPDATE DEST FORM//////////////
+let updatedName = document.querySelector("#updated-name")
+let updatedDate = document.querySelector("#updated-date")
+let updatedCategory = document.querySelector("#updated-category")
+let updatedComment = document.querySelector("#updated-comment")
+let updatedVisited = document.getElementsByName("updated-visited")
+let updatedCost = document.querySelector("#updated-cost")
+let updatedAttendees = document.querySelector("#updated-attendees")
+let updatedRating = document.querySelector("#updated-rating")
+
+////////// POPULATE EDIT DEST FORM WITH EXISTING VALUES //////////////
+function renderEditDestForm(currentDest){
+    updatedName.value = currentDest.name
+    updatedDate.value = currentDest.date_visited
+    updatedCategory.value = currentDest.category
+    updatedComment.value = currentDest.comment
+    updatedVisited.value = currentDest.visited
+    updatedCost.value = currentDest.cost
+    updatedAttendees.value = currentDest.attendees
+    updatedRating.value = currentDest.rating
+    editDestForm.dataset.id = currentDest.id
+ 
+    editDestForm.addEventListener("submit", patchUpdateDest)
+}
+
+////////// PATCH REQUEST TO UPDATE DEST INFORMATION IN BACKEND //////////////
+function patchUpdateDest(e){
+    e.preventDefault();
+
+    let destId = e.target.dataset.id
+    console.log("ran method")
+    fetch(`http://localhost:3000/destinations/${destId}`, {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify ({
+            name: updatedName.value,
+            date_visited: updatedDate.value,
+            category: updatedCategory.value,
+            comment: updatedComment.value,
+            visited: editDestForm.updatedVisited.value,
+            cost: updatedCost.value,
+            attendees: updatedAttendees.value,
+            rating: updatedRating.value
+        })
+
+    })
+    .then(response => response.json())
+    .then(dest => {
+        makeNewDestCard(dest)
+        editDestDiv.hidden = true
+    })
+}
+
+
+////////// EXIT OUT OF CURRENT CARD CARD/////////////
 function exitOut(e){
     destinationList.hidden = false
     showCard.hidden = true
-    // newDestinationForm.hidden = true
     accountInfoCard.hidden = true
     editAccountCard.hidden = true
 }
@@ -396,6 +476,7 @@ function exitOut(e){
 accountNavBtn.addEventListener("click", () => {
     renderAccountInfo(currentUser);
 })
+////////// RENDER ACCOUNT INFO CARD //////////////
 function renderAccountInfo(user) {
     accountInfoCard.hidden = false
     destinationList.hidden = true
@@ -414,6 +495,8 @@ function renderAccountInfo(user) {
     userEditBtn.addEventListener("click", renderEditAccountForm)
     
 }
+
+////////// RENDER EDIT ACCOUNT FORM AND POPULATE WITH EXISTING DATA//////////////
 function renderEditAccountForm(){
     accountInfoCard.hidden = true
     editAccountCard.hidden = false
