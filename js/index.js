@@ -459,7 +459,19 @@ function patchUpdateDest(e){
     .then(dest => {
         makeNewDestCard(dest)
         editDestDiv.hidden = true
+        removeOutdatedLi(dest);
+        addNewDestination(dest)
     })
+}
+
+function removeOutdatedLi(dest){
+    let allNodeLis = destinationList.querySelectorAll("li")
+    let allLis = Array.from(allNodeLis)
+    let destinationId = dest.id
+    let wantedLi = allLis.find(item =>
+        item.dataset.destId === destinationId.toString()
+    )
+    wantedLi.remove();
 }
 
 
