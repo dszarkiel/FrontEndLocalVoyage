@@ -51,18 +51,6 @@ let email = document.querySelector(".account-info-card #email");
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 //////////// EVENT LISTENER FOR GOOGLE MAPS ///////////
 googleMaps.addEventListener("click", googleMapShowCard)
 
@@ -300,8 +288,7 @@ function addMarker(dest, map) {
         marker.addListener("click", () => {
             infoWindow.open(map, marker)
         })
-    }
-        
+    } 
 }
 
 ////////// ADD NEW DESTINATION TO LIST (VISITED / NOT VISITED) //////////
@@ -389,6 +376,7 @@ function makeNewDestCard(destination){
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "Delete Memory"
     deleteBtn.dataset.id = destination.id
+    deleteBtn.addEventListener("click", deleteDestination)
 
     showCard.append(exitBtn, name, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
     
@@ -459,7 +447,20 @@ function patchUpdateDest(e){
     .then(dest => {
         makeNewDestCard(dest)
         editDestDiv.hidden = true
+        removeOutdatedLi(dest);
+        addNewDestination(dest)
+        addMarker(dest, map)
     })
+}
+
+function removeOutdatedLi(dest){
+    let allNodeLis = destinationList.querySelectorAll("li")
+    let allLis = Array.from(allNodeLis)
+    let destinationId = dest.id
+    let wantedLi = allLis.find(item =>
+        item.dataset.destId === destinationId.toString()
+    )
+    wantedLi.remove();
 }
 
 
@@ -536,4 +537,22 @@ function updateAccount(e){
         renderAccountInfo(newUserInfo)
         currentUser = newUserInfo
     })
+}
+
+///////// Delete Destination //////////
+function deleteDestination(e){
+    let id = e.target.dataset.id
+    fetch(`http://localhost:3000/destinations/${id}`, {
+        method: "DELETE"
+    })
+    .then(resp => resp.json())
+    .then(dest => {
+        removeOutdatedLi(dest)
+        // fetchAllDestinations()
+        // renderMapMarker(map)
+        // addMarker(dest, map)
+    })
+    showCard.hidden = true
+    destinationList.hidden = false
+   
 }
