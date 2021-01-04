@@ -16,7 +16,8 @@ let allUsers;
 let currentUser;
 let allDestinations;
 let map;
-
+let mapMarkers = [];
+// Sign-in and Sign-Up variables
 const signIn = document.querySelector("li#sign-in")
 const signUp = document.querySelector("li#sign-up")
 const welcomeScreen = document.querySelector("div#welcome-screen")
@@ -26,6 +27,7 @@ const signInDiv = document.querySelector(".sign-in-card")
 const signUpDiv = document.querySelector(".sign-up-card")
 const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
+// Rendering current user dashboard
 const userDashboard = document.querySelector(".dashboard")
 const newDestinationForm = document.querySelector("form.new-destination-form")
 const destinationFormDiv = document.querySelector("div.destination-form")
@@ -34,32 +36,20 @@ const createNewBtn = document.querySelector("button.create-new-destination-btn")
 const destinationList = document.querySelector("div.destinations-list")
 const googleMaps = document.querySelector(".google-maps")
 const cancelFormBtn = document.querySelector(".cancelFormBtn")
-
+// Account info and account update variables
 const accountNavBtn = document.querySelector("#account-view") 
 const logOutBtn = document.querySelector("#sign-out") 
 const accountInfoCard = document.querySelector(".account-info-card") 
 const editAccountCard = document.querySelector(".edit-account-card")
 const editAccountForm = document.querySelector("#edit-account-form")
-
+// Edit existing destination information variables 
 const editDestDiv = document.querySelector(".edit-destination-div")
 const editDestForm = document.querySelector(".edit-destination-form")
-
-// ACCOUNT INFORMATION FIELDS 
+const editDestCancelBtn = document.querySelector(".cancelDestUpdateBtn")
+// Account information to render on account show card
 let firstName = document.querySelector(".account-info-card #first_name");
 let lastName = document.querySelector(".account-info-card #last_name");
 let email = document.querySelector(".account-info-card #email");
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -68,17 +58,12 @@ googleMaps.addEventListener("click", googleMapShowCard)
 
 function googleMapShowCard(e){
     if(e.target.tagName==="H4"){
-
     let id = e.target.id
-
     fetch(`http://localhost:3000/destinations/${id}`)
     .then(response => response.json())
     .then(destination => makeNewDestCard(destination))
     }
 }   
-
-
-
 
 //////////// FETCH ALL USERS IN DB //////////// 
 function fetchAllUsers(){
@@ -93,10 +78,9 @@ function fetchAllDestinations() {
     fetch("http://localhost:3000/destinations")
     .then(resp => resp.json())
     .then(destObj => {
-        allDestinations = destObj
+        allDestinations = destObj;
     })
 } 
-
 
 //////////// SIGN IN LOGIC //////////// 
 signIn.addEventListener("click", () => {
@@ -217,6 +201,10 @@ function initAutocomplete() {
 //////////// ADDS DESTINATION MARKERS TO MAP FROM DB //////////// 
 function renderMapMarker(map) {
     let myDestinations = allDestinations.filter(dest => dest.user_id === currentUser.id)
+    if (mapMarkers) {
+        mapMarkers.forEach(marker => marker.setMap(null))
+    }
+
     if (myDestinations) {
         myDestinations.forEach(dest => {
             addMarker(dest, map);
@@ -278,7 +266,7 @@ function addMarker(dest, map) {
         let infoWindow = new google.maps.InfoWindow({
             content: objectDetails
         })
-
+        mapMarkers.push(marker)
         marker.addListener("click", () => {
             infoWindow.open(map, marker)
         })
@@ -296,12 +284,11 @@ function addMarker(dest, map) {
         let infoWindow = new google.maps.InfoWindow({
             content: objectDetails
         })
-
+        mapMarkers.push(marker)
         marker.addListener("click", () => {
             infoWindow.open(map, marker)
         })
-    }
-        
+    } 
 }
 
 ////////// ADD NEW DESTINATION TO LIST (VISITED / NOT VISITED) //////////
@@ -389,6 +376,7 @@ function makeNewDestCard(destination){
     const deleteBtn = document.createElement("button")
     deleteBtn.innerText = "Delete Memory"
     deleteBtn.dataset.id = destination.id
+    deleteBtn.addEventListener("click", deleteDestination)
 
     showCard.append(exitBtn, name, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
     
@@ -439,7 +427,6 @@ function patchUpdateDest(e){
     e.preventDefault();
 
     let destId = e.target.dataset.id
-    console.log("ran method")
     fetch(`http://localhost:3000/destinations/${destId}`, {
         method: "PATCH",
         headers: {"Content-Type": "application/json"},
@@ -461,8 +448,16 @@ function patchUpdateDest(e){
         editDestDiv.hidden = true
         removeOutdatedLi(dest);
         addNewDestination(dest)
+        addMarker(dest, map)
     })
 }
+
+////////// CANCEL BTN OUT OF UPDATE DEST FORM  /////////////
+editDestCancelBtn.addEventListener("click", () => {
+    newDestinationForm.reset() 
+    showCard.hidden = false
+    editDestDiv.hidden = true
+ })
 
 function removeOutdatedLi(dest){
     let allNodeLis = destinationList.querySelectorAll("li")
@@ -548,4 +543,20 @@ function updateAccount(e){
         renderAccountInfo(newUserInfo)
         currentUser = newUserInfo
     })
+}
+
+///////// Delete Destination //////////
+function deleteDestination(e){
+    let id = e.target.dataset.id
+    fetch(`http://localhost:3000/destinations/${id}`, {
+        method: "DELETE"
+    })
+    .then(resp => resp.json())
+    .then(dest => {
+        removeOutdatedLi(dest);
+        fetchAllDestinations();
+        setTimeout(function(){renderMapMarker(map)}, 10)
+    })
+    showCard.hidden = true
+    destinationList.hidden = false  
 }
