@@ -365,7 +365,6 @@ function makeNewDestCard(destination){
     } else {
         visited.innerHTML = "Visited: &#10060;"
     }
-    
     const cost = document.createElement('p')
     cost.innerText = `Cost: $${destination.cost}`
     const attendees = document.createElement('p')

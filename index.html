@@ -26,9 +26,9 @@
     </header>
     
 
-
+   
     <div id="welcome-screen" hidden=false>
-      <img src="./assets/images/ChicagoMap.png" class="welcome-image">
+      <!-- <img src="./assets/images/ChicagoMap.png" class="welcome-image"> -->
     </div>
     
     <div class="sign-in-card" hidden=true>
@@ -60,9 +60,9 @@
         <h1>Welcome to your LOCAL VOYAGE! </h1>
       </div> -->
 
-      <div class="new-dest-btn-div">
+      <!-- <div class="new-dest-btn-div">
         <button type="button" class="create-new-destination-btn">CREATE NEW DESTINATION </button>
-      </div><br>
+      </div><br> -->
 
     </div>
     
@@ -76,20 +76,29 @@
       
 
       <div class="destinations-list">
-
-        <h4>PLACES I WANT TO GO:</h4>
-        <hr>
-        <div class="not-visited">
-          <ul class="not-visited-ul">
-          </ul>
-        </div>
         
-        <h4>PLACES I HAVE BEEN TO:</h4>
-        <hr>
-        <div class="visited">
-          <ul class="visited-ul">
-          </ul>
+        <div class="new-dest-btn-div">
+          <button type="button" class="create-new-destination-btn">CREATE NEW DESTINATION </button>
+        </div><br>
+
+        <div class="not-visited-div">
+          <h4>PLACES I WANT TO GO:</h4>
+          <hr>
+          <div class="not-visited">
+            <ul class="not-visited-ul">
+            </ul>
+          </div>
+        </div>  
+        <br>
+        <div class="visited-div">
+          <h4>PLACES I HAVE BEEN TO:</h4>
+          <hr>
+          <div class="visited">
+            <ul class="visited-ul">
+            </ul>
+          </div>
         </div>
+
       </div>
 
       
@@ -97,9 +106,13 @@
       <div class="destination-form" hidden=true>
         <form class="new-destination-form">
           <input type="text" name="google-search" placeholder="GOOGLE SEARCH" class="input-text" id="google-search"/>
+          <br>
           <input type="text" name="name" placeholder="Name" class="input-text" id="name"/>
+          <br>
           <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text" id="date-visited"/>
+          <br>
           <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
+          <br>
           <input type="text" name="category" placeholder="Category" class="input-text" id="category"/><br>
 
           <h3>Have you visited this location yet?</h3>
@@ -113,13 +126,20 @@
           <br>
 
           <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text" id="cost"/>
+          <br>
           <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text" id="attendees"/>
+          <br>
           <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text" id="rating"/><br>
+
           <input type="text" name="latitude" class="input-text" id="latitude" hidden=true/>
+ 
           <input type="text" name="longitude" class="input-text" id="longitude" hidden=true/><br>
 
-          <input id="submitbtn" type="submit" name="submit" value="Add Destination"/>
-          <button type="button" class="cancelFormBtn">Cancel</button>
+          <div class="destination-form-buttons">
+            <input id="submitbtn" type="submit" name="submit" value="Add Destination"/>
+            <button type="button" class="cancelFormBtn">Cancel</button>
+          </div>
+          
         </form>
       </div>
 
@@ -184,6 +204,7 @@
 
 
     </div>
+  
 
   </body>
 </html>
