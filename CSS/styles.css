@@ -114,11 +114,11 @@ div#welcome-screen {
 .new-dest-btn-div{
   justify-content: center;
   border-radius: 10px;
-  width: 40%;
+  width: 100%;
   height: 75px;
   /* margin: 10px; */
-  margin-top: 25px;
-  padding: 5px;
+  margin-top: 0px;
+  padding: 0px;
 }
 
 
@@ -191,9 +191,12 @@ div#welcome-screen {
 .destinations-list {
   border-radius: 10px;
   width: 40%;
-  max-height: 940px;
-  margin: 10px;
-  /* padding: 20px; */
+  height: 900px;
+  margin-top: 10px;
+ margin-bottom: 10px; 
+ padding-bottom: 10px;
+ overflow-y: auto;
+  
   /* border: 2px solid #33988A; */
   /* background-color: white; */
 }
@@ -207,11 +210,12 @@ div#welcome-screen {
 
 
 .visited {
-  height: 70%;
+  height: 100%;
   overflow-y: auto;
   font-size: 20px;
   color: black;
   background-color: white;
+  padding-bottom: 20px;
 }
 
 .visited li:hover {
@@ -219,7 +223,7 @@ div#welcome-screen {
 }
 .not-visited {
   height: 70%;
-  overflow-y: auto;
+  padding-bottom: 10px;
   font-size: 20px;
   color: black;
   background-color: white;
@@ -236,10 +240,9 @@ div#welcome-screen {
 }
 
 .visited-div{
-  padding: 5px;
-  max-height: 45%;
+  padding-top: 5px;
+  padding-bottom: 30px;
   background-color: white;
-  bottom: 0;
 }
 
 
@@ -581,98 +584,6 @@ li {
 .edit-destination-div h4{
   font-family: Helvetica, sans-serif;
   width: 40%;
-  margin-top: 10px;
-  margin-bottom: 0px;
-}
-
-#edit-account-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-#update-account-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.edit-destination-div {
-  border-radius: 10px;
-  background-color: white;
-  overflow-y: auto;
-  text-align: left;
-  /* border: 2px solid #33988A; */
-  padding: 20px;
-  width: 50%;
-  height: 700px;
-  margin: 10px;
-  box-shadow: 3px 4px grey
-}
-
-.edit-destination-div .input-text {
-  margin-top: 3px;
-  padding: 5px;
-  text-align: left;
-}
-
-#updateDestBtn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-.cancelDestUpdateBtn{
-  padding: 10px;
-  font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-
-#updated-name{
-  width: 50%;
-}
-
-#updated-date{
-  width: 50%;
-}
-
-#updated-category{
-  width: 50%;
-}
-#updated-comment{
-  width: 98%;
-  height: 100px;
-}
-
-#updated-cost{
-  width: 50%;
-}
-
-#updated-attendees{
-  width: 50%;
-}
-
-#updated-rating{
-  width: 50%;
-}
-
-.edit-destination-div h4{
-  font-family: Helvetica, sans-serif;
-  width: 50%;
   margin-top: 10px;
   margin-bottom: 0px;
 }
