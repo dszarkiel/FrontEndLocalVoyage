@@ -16,8 +16,10 @@
   cursor: pointer;
 }
 
-body {
+html, body {
   margin: 0;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 .sign-in-card {
@@ -81,23 +83,64 @@ div#welcome-screen {
 
 
 
-/* DASHBOARD */
-.dashboard {
-  border-radius: 10px;
+
+/* create new button on dashboard */
+
+.logo-create-new {
   display: none;
   justify-content: center;
   max-width: 100%;
-  padding: 20px;
   height: auto;
-  margin: 50px;
-  border: 1px solid #33988A;
+
   background-image: linear-gradient(to right, white, #65ddd3, #11a8a1);
 }
 
+/* .logo{
+  text-align: center;
+  border-radius: 10px;
+  width: 50%;
+  height: 100px;
+  margin: 10px;
+  padding: 20px;
+} */
+
+.new-dest-btn-div{
+  justify-content: center;
+  border-radius: 10px;
+  width: 50%;
+  height: 75px;
+  margin: 10px;
+  padding: 20px;
+}
+
+
+.create-new-destination-btn {
+  background-color: #33988A;
+  padding: 20px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 25px;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* DASHBOARD */
+.dashboard {
+  display: none;
+  justify-content: center;
+  max-width: 100%;
+  padding: 10px;
+  height: 100%;
+
+  background-image: linear-gradient(to right, white, #65ddd3, #11a8a1);
+}
+
+
 .google-maps {
   border-radius: 10px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
@@ -109,10 +152,18 @@ div#welcome-screen {
   cursor: pointer;
 }
 
+.google-maps .firstHeading {
+  margin: 5px;
+}
+
+.google-maps p {
+  margin: 5px;
+}
+
 .destinations-list {
   border-radius: 10px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
@@ -147,32 +198,25 @@ div#welcome-screen {
   color: #33988A;
 }
 
-.create-new-destination-btn {
-  background-color: #33988A;
-  padding: 20px;
-  text-align: center;
-  margin-left: 12%;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 25px;
-}
 
-.create-new-destination-btn:hover{
-  /* -webkit-transform: scale(1.2);
+
+/* .create-new-destination-btn:hover{
+  -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
-  transform: scale(1.2); */
+  transform: scale(1.2);
   cursor: pointer;
-}
+} */
 
 .destination-form {
   border-radius: 10px;
   background-color: white;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
   text-align: left;
+  overflow-y: auto;
 }
 
 .destination-form .input-text {
@@ -196,17 +240,17 @@ div#welcome-screen {
   cursor: pointer;
 }
 
-.destination-form .cancelFormBtn:hover {
+/* .destination-form .cancelFormBtn:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-}
+} */
 
 
 .destination-form #submitbtn {
   background-color: #33988A;
   padding: 10px;
-  margin-left: 60px;
+  margin-left: 10px;
   margin-top: 20px;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
@@ -214,11 +258,13 @@ div#welcome-screen {
   cursor: pointer;
 }
 
-.destination-form #submitbtn:hover {
+
+
+/* .destination-form #submitbtn:hover {
 -webkit-transform: scale(1.2);
 -ms-transform: scale(1.2);
 transform: scale(1.2);
-}
+} */
 
 /* .show-card {
   width: 50%;
@@ -235,10 +281,30 @@ transform: scale(1.2);
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
-  box-shadow: 3px 4px grey
+  box-shadow: 3px 4px grey;
+  font-family: Helvetica, sans-serif;
+}
+
+#edit-destination-btn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#delete-destination-btn{
+  background-color: #b14a1e;
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 li {
@@ -259,6 +325,7 @@ li {
   cursor: pointer;
   font-weight: bolder;
   font-size: 15px;
+  
 }
 
 .show-card span:hover {
@@ -277,6 +344,7 @@ li {
   cursor: pointer;
   font-weight: bolder;
   font-size: 15px;
+  font-family: Helvetica, sans-serif;
 }
 .account-info-card span {
   float: right;
@@ -284,11 +352,45 @@ li {
   cursor: pointer;
   font-weight: bolder;
   font-size: 15px;
+  font-family: Helvetica, sans-serif;
 }
 
 #google-search {
   width: 100%;
 }
+
+#name{
+  width: 50%;
+}
+
+#date-visited{
+  width: 50%;
+}
+
+#address{
+  width: 50%;
+}
+
+#category{
+  width: 50%;
+}
+#comment{
+  width: 100%;
+  height: 100px;
+}
+
+#cost{
+  width: 50%;
+}
+
+#attendees{
+  width: 50%;
+}
+
+#rating{
+  width: 50%;
+}
+
 
 .account-info-card {
   border-radius: 10px;
@@ -297,8 +399,8 @@ li {
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   box-shadow: 3px 4px grey
 }
@@ -310,21 +412,104 @@ li {
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   box-shadow: 3px 4px grey
+}
+
+#edit-account-btn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#update-account-btn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 25px;
+  cursor: pointer;
 }
 
 .edit-destination-div {
   border-radius: 10px;
   background-color: white;
   overflow-y: auto;
-  text-align: center;
+  text-align: left;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   box-shadow: 3px 4px grey
+}
+
+.edit-destination-div .input-text {
+  margin-top: 3px;
+  padding: 5px;
+  text-align: left;
+}
+
+#updateDestBtn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+.cancelDestUpdateBtn{
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#updated-name{
+  width: 50%;
+}
+
+#updated-date{
+  width: 50%;
+}
+
+#updated-category{
+  width: 50%;
+}
+#updated-comment{
+  width: 100%;
+  height: 100px;
+}
+
+#updated-cost{
+  width: 50%;
+}
+
+#updated-attendees{
+  width: 50%;
+}
+
+#updated-rating{
+  width: 50%;
+}
+
+.edit-destination-div h4{
+  font-family: Helvetica, sans-serif;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
+
+.destinations-list h4{
+  font-family: Helvetica, sans-serif;
 }

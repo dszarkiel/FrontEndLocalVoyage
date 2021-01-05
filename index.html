@@ -17,7 +17,7 @@
         </ul>
 
         <ul class = "user-nav" hidden=true>
-          <li id="greeting" class="nav-link">Welcome!</li>
+          <li id="greeting" class="nav-link">Welcome to Local Voyage!</li>
           <li id="dashboard" class="nav-link">Dashboard</li>
           <li id="account-view" class="nav-link">Account</li>
           <li id="sign-out" class="nav-link">Log Out</li>
@@ -53,24 +53,35 @@
       </form>
     </div>
   
+    <!-- created a new div to house the logo and the create new button -->
+    <div class="logo-create-new" hidden=true>
 
+      <!-- <div class="logo">
+        <h1>Welcome to your LOCAL VOYAGE! </h1>
+      </div> -->
 
-    <div class="dashboard" width="1600" height="900" hidden=true>
+      <div class="new-dest-btn-div">
+        <button type="button" class="create-new-destination-btn">CREATE NEW DESTINATION </button>
+      </div><br>
+
+    </div>
+    
+
+    <!-- removed the width and height from the dashboard -->
+    <div class="dashboard" hidden=true>
     
       <div class="google-maps">
       </div>
 
-      <div>
-        <button type="button" class="create-new-destination-btn">CREATE NEW DESTINATION </button>
-      </div><br>
+      
 
       <div class="destinations-list">
-        <h4>Where I want to go:</h4>
+        <h4>PLACES I WANT TO GO:</h4>
         <div class="not-visited">
           <ul class="not-visited-ul">
           </ul>
         </div>
-        <h4>Places I've been to:</h4>
+        <h4>PLACES I HAVE BEEN TO:</h4>
         <div class="visited">
           <ul class="visited-ul">
           </ul>
@@ -81,13 +92,12 @@
 
       <div class="destination-form" hidden=true>
         <form class="new-destination-form">
-          <input type="text" placeholder="GOOGLE SEARCH" id="google-search"/><br>
+          <input type="text" name="google-search" placeholder="GOOGLE SEARCH" class="input-text" id="google-search"/>
           <input type="text" name="name" placeholder="Name" class="input-text" id="name"/>
-          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"/>
+          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text" id="date-visited"/>
           <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
-          <input type="text" name="category" placeholder="Category" class="input-text"/>
-          <input type="text" name="comment" placeholder="Please enter any comments" class="input-text"/>
-          <br>
+          <input type="text" name="category" placeholder="Category" class="input-text" id="category"/><br>
+
           <h3>Have you visited this location yet?</h3>
           <input type="radio" class="radio" id="visited" name="visited" value=true>
           <label for="visited">Yes</label><br>
@@ -95,9 +105,12 @@
           <input type="radio" class="radio" id="not-visited" name="visited" value=false checked="checked">
           <label for="not-visited">No</label><br>
 
-          <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text"/>
-          <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text"/>
-          <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text"/><br>
+          <input type="text" name="comment" placeholder="Please enter any comments or memories" class="input-text" id="comment"/>
+          <br>
+
+          <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text" id="cost"/>
+          <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text" id="attendees"/>
+          <input type="text" name="rating" placeholder="Rating: One of out five" class="input-text" id="rating"/><br>
           <input type="text" name="latitude" class="input-text" id="latitude" hidden=true/>
           <input type="text" name="longitude" class="input-text" id="longitude" hidden=true/><br>
 
@@ -109,9 +122,13 @@
 
       <div class="edit-destination-div" hidden=true>
         <form class="edit-destination-form">
+          <h4>Name:</h4>
           <input type="text" name="updated-name" placeholder="Name" class="input-text" id="updated-name"/>
+          <h4>Date Visited:</h4>
           <input type="text" name="updated-date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"id="updated-date"/>
+          <h4>Category:</h4>
           <input type="text" name="updated-category" placeholder="Category" class="input-text"id="updated-category"/>
+          <h4>Comments:</h4>
           <input type="text" name="updated-comment" placeholder="Please enter any comments" class="input-text"id="updated-comment"/>
           <br>
           <h3>Have you visited this location yet?</h3>
@@ -120,9 +137,11 @@
           
           <input type="radio" class="radio" name="updatedVisited" value=false checked="checked" id="updated-not-visited">
           <label for="updated-not-visited">No</label><br>
-
+          <h4>Cost:</h4>
           <input type="text" name="updated-cost" placeholder="Please enter your total cost" class="input-text" id="updated-cost"/>
+          <h4>Attendees:</h4>
           <input type="text" name="updated-attendees" placeholder="Who was in attendance?" class="input-text" id="updated-attendees"/>
+          <h4>Rating:</h4>
           <input type="text" name="updated-rating" placeholder="Rating: One of out five" class="input-text" id="updated-rating"/><br>
 
           <input id="updateDestBtn" type="submit" name="submit" value="Update Destination"/>
