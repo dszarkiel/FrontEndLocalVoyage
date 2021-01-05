@@ -341,17 +341,18 @@ function renderCard(e) {
 ///////// MAKE DESTINATION CARD //////////////
 function makeNewDestCard(destination){
     showCard.innerHTML = ""
-
     const exitBtn = document.createElement("span")
     exitBtn.innerText = "X"
     exitBtn.addEventListener("click", exitOut)
-
     const name = document.createElement('h2')
     name.innerText = destination.name
     // const img = document.createElement('img')
     // img.src = destination.image
-    const dateVisited = document.createElement('h3')
-    dateVisited.innerText = destination.date_visited
+    const dateVisited = document.createElement('p')
+    dateVisited.innerText = `Date: ${destination.date_visited}`
+    if (destination.date_visited === "" && destination.visited) {
+        dateVisited.innerText = "Date: Please enter the date you attended!"
+    }
     const address = document.createElement('p')
     address.innerText = ` Address: ${destination.address}`
     const category = document.createElement('p')
@@ -359,9 +360,14 @@ function makeNewDestCard(destination){
     const comment = document.createElement('p')
     comment.innerText = `Comments: ${destination.comment}`
     const visited = document.createElement('p')
-    visited.innerText = `Visited? ${destination.visited}`
+    if (destination.visited) {
+        visited.innerHTML = "Visited: &#9989;"
+    } else {
+        visited.innerHTML = "Visited: &#10060;"
+    }
+    
     const cost = document.createElement('p')
-    cost.innerText = `Cost: ${destination.cost}`
+    cost.innerText = `Cost: $${destination.cost}`
     const attendees = document.createElement('p')
     attendees.innerText = `Attendees: ${destination.attendees}`
     const rating = document.createElement('p')
