@@ -111,27 +111,10 @@ div#welcome-screen {
   padding: 20px;
 } */
 
-.new-dest-btn-div{
-  justify-content: center;
-  border-radius: 10px;
-  width: 100%;
-  height: 75px;
-  /* margin: 10px; */
-  margin-top: 0px;
-  padding: 0px;
-}
 
 
-/* .create-new-destination-btn {
-  background-color: #33988A;
-  padding: 20px;
-  text-align: center;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 5px;
-  width: 100%;
-  cursor: pointer;
-} */
+
+
 
 .create-new-destination-btn{
   width: 100%;
@@ -189,14 +172,12 @@ div#welcome-screen {
 }
 
 .destinations-list {
+  margin-top: 10px;
   border-radius: 10px;
   width: 40%;
-  height: 900px;
-  margin-top: 10px;
- margin-bottom: 10px; 
- padding-bottom: 10px;
- overflow-y: auto;
-  
+  max-height: 940px;
+  /* margin: 10px; */
+  /* padding: 20px; */
   /* border: 2px solid #33988A; */
   /* background-color: white; */
 }
@@ -208,41 +189,60 @@ div#welcome-screen {
   margin-bottom: 5px;
 }
 
+.new-dest-btn-div{
+  justify-content: center;
+  border-radius: 10px;
+  width: 100%;
+  /* margin: 10px; */
+  /* padding: 5px; */
+}
+.create-new-destination-btn {
+  /* background-color: #33988A; */
+  /* padding: 20px; */
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+}
 
+.visited-div{
+  margin-top: 5px;
+  border-radius: 5px;
+  padding: 5px;
+  height: 44%;
+  background-color: white;
+  bottom: 0;
+  max-height: 400px;
+}
 .visited {
-  height: 100%;
-  overflow-y: auto;
+  height: 75%;
+  overflow-y: scroll;
   font-size: 20px;
   color: black;
   background-color: white;
-  padding-bottom: 20px;
 }
-
 .visited li:hover {
-  color: #33988A;
-}
-.not-visited {
-  height: 70%;
-  padding-bottom: 10px;
-  font-size: 20px;
-  color: black;
-  background-color: white;
-}
-
-.not-visited li:hover {
   color: #33988A;
 }
 
 .not-visited-div{
+  border-radius: 5px;
   padding: 5px;
-  height: 45%;
+  height: 43%;
+  background-color: white;
+  max-height: 400px;
+}
+.not-visited {
+  height: 75%;
+  overflow-y: scroll;
+  font-size: 20px;
+  color: black;
   background-color: white;
 }
-
-.visited-div{
-  padding-top: 5px;
-  padding-bottom: 30px;
-  background-color: white;
+.not-visited li:hover {
+  color: #33988A;
 }
 
 

@@ -151,6 +151,8 @@ function submitSignUp(e) {
 //////////// RENDER ALL EXISTING DESTINATIONS IN DESTINATIONS LIST ////////////
 function renderMyDestinations() {
     let myDestinations = allDestinations.filter(dest => dest.user_id === currentUser.id)
+    // if sdkfjsadfj 
+    //     RenderIntroCard
     let visitedUl = document.querySelector(".visited-ul")
     let notVisitedUl = document.querySelector(".not-visited-ul")
     myDestinations.forEach(dest => {
@@ -359,6 +361,7 @@ function makeNewDestCard(destination){
     category.innerText = `Category: ${destination.category}`
     const comment = document.createElement('p')
     comment.innerText = `Comments: ${destination.comment}`
+
     const visited = document.createElement('p')
     if (destination.visited) {
         visited.innerHTML = "Visited: &#9989;"
@@ -387,7 +390,7 @@ function makeNewDestCard(destination){
     deleteBtn.dataset.id = destination.id
     deleteBtn.addEventListener("click", deleteDestination)
 
-    showCard.append(exitBtn, name, dateVisited, hr1, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
+    showCard.append(exitBtn, name, hr1, dateVisited, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
     
     destinationList.hidden = true
     showCard.hidden = false
