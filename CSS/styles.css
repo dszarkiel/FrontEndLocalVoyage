@@ -16,8 +16,11 @@
   cursor: pointer;
 }
 
-body {
+html, body {
   margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background-image: url("ChicagoMap.png");
 }
 
 .sign-in-card {
@@ -76,27 +79,21 @@ div#welcome-screen {
 }
 
 
-
-
-
-
-
 /* DASHBOARD */
 .dashboard {
-  border-radius: 10px;
   display: none;
   justify-content: center;
   max-width: 100%;
   padding: 20px;
-  height: auto;
-  margin: 50px;
-  border: 1px solid #33988A;
-  background-image: linear-gradient(to right, white, #65ddd3, #11a8a1);
+  height: 100%;
+  background-image: url("https://www.myjewishlearning.com/wp-content/uploads/2019/07/ChicagoMapFinal.jpg");
+  background-repeat: no-repeat;
+  background-size: auto;
 }
 
 .google-maps {
   border-radius: 10px;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   padding: 20px;
@@ -111,7 +108,7 @@ div#welcome-screen {
 
 .destinations-list {
   border-radius: 10px;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   padding: 20px;
@@ -123,8 +120,6 @@ div#welcome-screen {
   text-align: center;
   font-size: 20px;
 }
-
-
 
 .visited {
   height: 35%;
@@ -158,21 +153,19 @@ div#welcome-screen {
 }
 
 .create-new-destination-btn:hover{
-  /* -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2); */
   cursor: pointer;
 }
 
 .destination-form {
   border-radius: 10px;
   background-color: white;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   padding: 20px;
   border: 2px solid #33988A;
   text-align: left;
+  overflow-y: auto;
 }
 
 .destination-form .input-text {
@@ -220,13 +213,6 @@ div#welcome-screen {
 transform: scale(1.2);
 }
 
-/* .show-card {
-  width: 50%;
-  height: 700px;
-  margin: 10px;
-  padding: 20px;
-  border: 2px solid #33988A;
-} */
 
 .show-card {
   border-radius: 10px;
@@ -235,7 +221,7 @@ transform: scale(1.2);
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   box-shadow: 3px 4px grey
@@ -297,7 +283,7 @@ li {
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   box-shadow: 3px 4px grey
@@ -310,7 +296,7 @@ li {
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   box-shadow: 3px 4px grey
@@ -323,7 +309,7 @@ li {
   text-align: center;
   border: 2px solid #33988A;
   padding: 20px;
-  width: 40%;
+  width: 50%;
   height: 500px;
   margin: 10px;
   box-shadow: 3px 4px grey
