@@ -6,7 +6,7 @@ fetchAllDestinations();
 function renderDashboard(user) {
     currentUser = user
     userDashboard.style.display = "flex"
-    secondDashboardDiv.style.display = "flex"
+    // secondDashboardDiv.style.display = "flex"
     initMap();
     initAutocomplete();
     renderMyDestinations();
