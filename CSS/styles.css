@@ -16,9 +16,11 @@
   cursor: pointer;
 }
 
-body {
+html, body {
   margin: 0;
-  background-image: url("./assets/images/ChicagoMap.png");
+  height: 100%;
+  overflow-y: hidden;
+  
 }
 
 .sign-in-card {
@@ -82,26 +84,86 @@ div#welcome-screen {
 
 
 
-/* DASHBOARD */
-.dashboard {
-  border-radius: 10px;
+
+/* create new button on dashboard */
+
+.logo-create-new {
   display: none;
   justify-content: center;
   max-width: 100%;
-  padding: 20px;
   height: auto;
-  margin: 50px;
-  border: 1px solid #33988A;
+
   background-image: linear-gradient(to right, white, #65ddd3, #11a8a1);
 }
 
-.google-maps {
+/* .logo{
+  text-align: center;
   border-radius: 10px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 100px;
   margin: 10px;
   padding: 20px;
-  border: 2px solid #33988A;
+} */
+
+.new-dest-btn-div{
+  justify-content: center;
+  border-radius: 10px;
+  width: 50%;
+  height: 75px;
+  /* margin: 10px; */
+  margin-top: 25px;
+  padding: 5px;
+}
+
+
+/* .create-new-destination-btn {
+  background-color: #33988A;
+  padding: 20px;
+  text-align: center;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+} */
+
+.create-new-destination-btn{
+  width: 100%;
+  padding:0.7em 1.7em;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family:'Roboto',sans-serif;
+  font-weight:400;
+  color:#FFFFFF;
+  background-color:#3369ff;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: #3369ff;
+  
+}
+
+
+/* DASHBOARD */
+.dashboard {
+  display: none;
+  justify-content: center;
+  max-width: 100%;
+  padding: 10px;
+  height: 100%;
+  /* flex-wrap: wrap; */
+  background-image: linear-gradient(to right, white, #65ddd3, #11a8a1);
+}
+
+
+.google-maps {
+  border-radius: 10px;
+  width: 50%;
+  height: 700px;
+  margin: 10px;
+  padding: 20px;
+  /* border: 2px solid #33988A; */
   background-color: white;
 }
 
@@ -110,19 +172,29 @@ div#welcome-screen {
   cursor: pointer;
 }
 
+.google-maps .firstHeading {
+  margin: 5px;
+}
+
+.google-maps p {
+  margin: 5px;
+}
+
 .destinations-list {
   border-radius: 10px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   padding: 20px;
-  border: 2px solid #33988A;
+  /* border: 2px solid #33988A; */
   background-color: white;
 }
 
 .destinations-list h4 {
+  font-family: Helvetica, sans-serif;
   text-align: center;
   font-size: 20px;
+  margin-bottom: 5px;
 }
 
 
@@ -132,6 +204,7 @@ div#welcome-screen {
   overflow-y: auto;
   font-size: 20px;
   color: black;
+  background-color: white;
 }
 
 .visited li:hover {
@@ -142,38 +215,32 @@ div#welcome-screen {
   overflow-y: auto;
   font-size: 20px;
   color: black;
+  background-color: white;
 }
 
 .not-visited li:hover {
   color: #33988A;
 }
 
-.create-new-destination-btn {
-  background-color: #33988A;
-  padding: 20px;
-  text-align: center;
-  margin-left: 12%;
-  font-family: monospace;
-  font-size: 20px;
-  border-radius: 25px;
-}
 
-.create-new-destination-btn:hover{
+
+/* .create-new-destination-btn:hover{
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
   cursor: pointer;
-}
+} */
 
 .destination-form {
   border-radius: 10px;
   background-color: white;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
   padding: 20px;
-  border: 2px solid #33988A;
+  /* border: 2px solid #33988A; */
   text-align: left;
+  overflow-y: auto;
 }
 
 .destination-form .input-text {
@@ -191,35 +258,37 @@ div#welcome-screen {
 
 .destination-form .cancelFormBtn {
   padding: 10px;
-  font-family: fantasy;
+  font-family: Helvetica, sans-serif;
   font-size: 15px;
-  border-radius: 25px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-.destination-form .cancelFormBtn:hover {
+/* .destination-form .cancelFormBtn:hover {
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
   transform: scale(1.2);
-}
+} */
 
 
 .destination-form #submitbtn {
   background-color: #33988A;
   padding: 10px;
-  margin-left: 60px;
+  margin-left: 10px;
   margin-top: 20px;
-  font-family: fantasy;
+  font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 25px;
+  border-radius: 10px;
   cursor: pointer;
 }
 
-.destination-form #submitbtn:hover {
+
+
+/* .destination-form #submitbtn:hover {
 -webkit-transform: scale(1.2);
 -ms-transform: scale(1.2);
 transform: scale(1.2);
-}
+} */
 
 /* .show-card {
   width: 50%;
@@ -233,17 +302,38 @@ transform: scale(1.2);
   border-radius: 10px;
   background-color: white;
   overflow-y: auto;
-  text-align: center;
-  border: 2px solid #33988A;
+  text-align: left;
+  /* border: 2px solid #33988A; */
   padding: 20px;
-  width: 40%;
-  height: 500px;
+  width: 50%;
+  height: 700px;
   margin: 10px;
-  box-shadow: 3px 4px grey
+  box-shadow: 3px 4px grey;
+  font-family: Helvetica, sans-serif;
+}
+
+#edit-destination-btn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#delete-destination-btn{
+  background-color: #b14a1e;
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 li {
   cursor: pointer;
+  font-family: Helvetica, sans-serif;
 }
  /* END OF DASHBOARD */
 
@@ -259,11 +349,187 @@ li {
   cursor: pointer;
   font-weight: bolder;
   font-size: 15px;
+  
 }
 
 .show-card span:hover {
   color: red;
 }
 
+.account-info-card span:hover {
+  color: red;
+}
+.edit-account-card span:hover {
+  color: red;
+}
+.edit-account-card span {
+  float: right;
+  text-align: right;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+}
+.account-info-card span {
+  float: right;
+  text-align: right;
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 15px;
+  font-family: Helvetica, sans-serif;
+}
+
+#google-search {
+  width: 98%;
+}
+
+#name{
+  width: 50%;
+}
+
+#date-visited{
+  width: 50%;
+}
+
+#address{
+  width: 50%;
+}
+
+#category{
+  width: 50%;
+}
+#comment{
+  width: 98%;
+  height: 100px;
+}
+
+#cost{
+  width: 50%;
+}
+
+#attendees{
+  width: 50%;
+}
+
+#rating{
+  width: 50%;
+}
 
 
+.account-info-card {
+  border-radius: 10px;
+  background-color: white;
+  overflow-y: auto;
+  text-align: center;
+  /* border: 2px solid #33988A; */
+  padding: 20px;
+  width: 50%;
+  height: 700px;
+  margin: 10px;
+  box-shadow: 3px 4px grey
+}
+
+.edit-account-card {
+  border-radius: 10px;
+  background-color: white;
+  overflow-y: auto;
+  text-align: center;
+  /* border: 2px solid #33988A; */
+  padding: 20px;
+  width: 50%;
+  height: 700px;
+  margin: 10px;
+  box-shadow: 3px 4px grey
+}
+
+#edit-account-btn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#update-account-btn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.edit-destination-div {
+  border-radius: 10px;
+  background-color: white;
+  overflow-y: auto;
+  text-align: left;
+  /* border: 2px solid #33988A; */
+  padding: 20px;
+  width: 50%;
+  height: 700px;
+  margin: 10px;
+  box-shadow: 3px 4px grey
+}
+
+.edit-destination-div .input-text {
+  margin-top: 3px;
+  padding: 5px;
+  text-align: left;
+}
+
+#updateDestBtn{
+  background-color: #33988A;
+  padding: 10px;
+  margin: 5px;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancelDestUpdateBtn{
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  font-size: 15px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#updated-name{
+  width: 50%;
+}
+
+#updated-date{
+  width: 50%;
+}
+
+#updated-category{
+  width: 50%;
+}
+#updated-comment{
+  width: 98%;
+  height: 100px;
+}
+
+#updated-cost{
+  width: 50%;
+}
+
+#updated-attendees{
+  width: 50%;
+}
+
+#updated-rating{
+  width: 50%;
+}
+
+.edit-destination-div h4{
+  font-family: Helvetica, sans-serif;
+  width: 50%;
+  margin-top: 10px;
+  margin-bottom: 0px;
+}
