@@ -6,6 +6,7 @@ fetchAllDestinations();
 function renderDashboard(user) {
     currentUser = user
     userDashboard.style.display = "flex"
+    secondDashboardDiv.style.display = "flex"
     initMap();
     initAutocomplete();
     renderMyDestinations();
@@ -29,6 +30,7 @@ const logInUL = document.querySelector("ul.nav")
 const userUL = document.querySelector("ul.user-nav")
 // Rendering current user dashboard
 const userDashboard = document.querySelector(".dashboard")
+const secondDashboardDiv = document.querySelector(".logo-create-new")
 const newDestinationForm = document.querySelector("form.new-destination-form")
 const destinationFormDiv = document.querySelector("div.destination-form")
 const showCard = document.querySelector("div.show-card")
@@ -341,11 +343,9 @@ function renderCard(e) {
 ///////// MAKE DESTINATION CARD //////////////
 function makeNewDestCard(destination){
     showCard.innerHTML = ""
-
     const exitBtn = document.createElement("span")
     exitBtn.innerText = "X"
     exitBtn.addEventListener("click", exitOut)
-
     const name = document.createElement('h2')
     name.innerText = destination.name
     // const img = document.createElement('img')
@@ -355,7 +355,6 @@ function makeNewDestCard(destination){
     if (destination.date_visited === "" && destination.visited) {
         dateVisited.innerText = "Date: Please enter the date you attended!"
     }
-
     const address = document.createElement('p')
     address.innerText = ` Address: ${destination.address}`
     const category = document.createElement('p')
@@ -369,7 +368,6 @@ function makeNewDestCard(destination){
     } else {
         visited.innerHTML = "Visited: &#10060;"
     }
-
     const cost = document.createElement('p')
     cost.innerText = `Cost: $${destination.cost}`
     const attendees = document.createElement('p')
@@ -381,12 +379,14 @@ function makeNewDestCard(destination){
     const hr3 = document.createElement('hr')
 
     const editBtn = document.createElement("button")
-    editBtn.innerText = "Edit Memory"
+    editBtn.id = "edit-destination-btn"
+    editBtn.innerText = "Edit"
     editBtn.dataset.id = destination.id
     editBtn.addEventListener("click", fetchCurrentDest)
 
     const deleteBtn = document.createElement("button")
-    deleteBtn.innerText = "Delete Memory"
+    deleteBtn.id = "delete-destination-btn"
+    deleteBtn.innerText = "Delete"
     deleteBtn.dataset.id = destination.id
     deleteBtn.addEventListener("click", deleteDestination)
 
