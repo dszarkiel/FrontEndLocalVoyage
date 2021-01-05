@@ -83,7 +83,12 @@ function fetchAllDestinations() {
         allDestinations = destObj;
     })
 } 
-
+///////////////// SIGN OUT LOGIC //////////////
+logOutBtn.addEventListener("click", logOut)
+function logOut(e){
+    console.log(e.target)
+    location.reload()
+}
 //////////// SIGN IN LOGIC //////////// 
 signIn.addEventListener("click", () => {
     showSignInDiv()
@@ -572,3 +577,4 @@ function deleteDestination(e){
     showCard.hidden = true
     destinationList.hidden = false  
 }
+

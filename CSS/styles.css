@@ -151,7 +151,7 @@ div#welcome-screen {
 .google-maps {
   border-radius: 10px;
   width: 60%;
-  height: 900px;
+  height: 800px;
   margin: 10px;
   padding: 20px;
   /* border: 2px solid #33988A; */
@@ -175,7 +175,7 @@ div#welcome-screen {
   margin-top: 10px;
   border-radius: 10px;
   width: 40%;
-  max-height: 940px;
+  max-height: 800px;
   /* margin: 10px; */
   /* padding: 20px; */
   /* border: 2px solid #33988A; */
@@ -257,7 +257,7 @@ div#welcome-screen {
   border-radius: 10px;
   background-color: white;
   width: 40%;
-  height: 700px;
+  height: 800px;
   margin: 10px;
   padding: 20px;
   /* border: 2px solid #33988A; */
@@ -360,7 +360,7 @@ transform: scale(1.2);
   /* border: 2px solid #33988A; */
   padding: 20px;
   width: 40%;
-  height: 700px;
+  height: 800px;
   margin: 10px;
   box-shadow: 3px 4px grey;
   font-family: Helvetica, sans-serif;
@@ -478,7 +478,7 @@ li {
   /* border: 2px solid #33988A; */
   padding: 20px;
   width: 40%;
-  height: 700px;
+  height: 800px;
   margin: 10px;
   box-shadow: 3px 4px grey
 }
@@ -491,29 +491,41 @@ li {
   /* border: 2px solid #33988A; */
   padding: 20px;
   width: 40%;
-  height: 700px;
+  height: 800px;
   margin: 10px;
   box-shadow: 3px 4px grey
 }
 
 #edit-account-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: auto;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: white;
 }
 
 #update-account-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
+  width: 100%;
+  padding: 20px;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: white;
+  margin-bottom: 10px;
 }
 
 .edit-destination-div {
@@ -524,7 +536,7 @@ li {
   /* border: 2px solid #33988A; */
   padding: 20px;
   width: 40%;
-  height: 700px;
+  height: 800px;
   margin: 10px;
   box-shadow: 3px 4px grey
 }
