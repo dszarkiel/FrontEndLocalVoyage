@@ -126,6 +126,7 @@ function showSignUpDiv() {
 
 signUPForm.addEventListener("submit", submitSignUp)
 function submitSignUp(e) {
+    signUpDiv.hidden = true
     e.preventDefault();
     let userFirstName = e.target["first-name"].value
     let userLastName = e.target["last-name"].value
@@ -148,11 +149,15 @@ function submitSignUp(e) {
     userUL.hidden = false
 }
 
+///////////////// SIGN OUT LOGIC //////////////
+logOutBtn.addEventListener("click", logOut)
+function logOut(e){
+    location.reload()
+}
+
 //////////// RENDER ALL EXISTING DESTINATIONS IN DESTINATIONS LIST ////////////
 function renderMyDestinations() {
     let myDestinations = allDestinations.filter(dest => dest.user_id === currentUser.id)
-    // if sdkfjsadfj 
-    //     RenderIntroCard
     let visitedUl = document.querySelector(".visited-ul")
     let notVisitedUl = document.querySelector(".not-visited-ul")
     myDestinations.forEach(dest => {
@@ -378,6 +383,9 @@ function makeNewDestCard(destination){
     const hr2 = document.createElement('hr')
     const hr3 = document.createElement('hr')
 
+    const btnDiv = document.createElement("div")
+    btnDiv.classList.add("show-card-btns")
+
     const editBtn = document.createElement("button")
     editBtn.id = "edit-destination-btn"
     editBtn.innerText = "Edit"
@@ -390,7 +398,8 @@ function makeNewDestCard(destination){
     deleteBtn.dataset.id = destination.id
     deleteBtn.addEventListener("click", deleteDestination)
 
-    showCard.append(exitBtn, name, hr1, dateVisited, address, category, visited, cost, attendees, hr2, comment, rating, hr3, editBtn, deleteBtn)
+    btnDiv.append(editBtn, deleteBtn)
+    showCard.append(exitBtn, name, hr1, dateVisited, address, category, visited, cost, attendees, hr2, comment, rating, hr3, btnDiv)
     
     destinationList.hidden = true
     showCard.hidden = false
@@ -415,6 +424,7 @@ let updatedDate = document.querySelector("#updated-date")
 let updatedCategory = document.querySelector("#updated-category")
 let updatedComment = document.querySelector("#updated-comment")
 let updatedVisited = document.getElementsByName("updated-visited")
+let notUpdatedVisited = document.querySelector("#updated-not-visited")
 let updatedCost = document.querySelector("#updated-cost")
 let updatedAttendees = document.querySelector("#updated-attendees")
 let updatedRating = document.querySelector("#updated-rating")
@@ -425,7 +435,6 @@ function renderEditDestForm(currentDest){
     updatedDate.value = currentDest.date_visited
     updatedCategory.value = currentDest.category
     updatedComment.value = currentDest.comment
-    updatedVisited.value = currentDest.visited
     updatedCost.value = currentDest.cost
     updatedAttendees.value = currentDest.attendees
     updatedRating.value = currentDest.rating

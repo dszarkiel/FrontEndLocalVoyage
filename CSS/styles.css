@@ -30,6 +30,7 @@ html, body {
 
 
 .sign-in-card {
+  font-family: Helvetica, sans-serif;
   width: 450px;
   height: 460px;
   margin: 100px auto;
@@ -42,8 +43,25 @@ html, body {
 .sign-in-form {
   margin-top: 50px;
 }
+#sign-in-submit-btn {
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+}
 
 .sign-up-card {
+  font-family: Helvetica, sans-serif;
   width: 450px;
   height: 460px;
   margin: 100px auto;
@@ -51,9 +69,28 @@ html, body {
   border: 1px solid #141415;
   border-radius: 19px;
   text-align: center;
+  background-color: white;
+}
+
+#sign-up-submit-btn {
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
+  font-family: Helvetica, sans-serif;
+  font-size: 20px;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
 }
 
 .nav-link {
+  font-family: Helvetica, sans-serif;
   float: left;
   display: block;
   color: white;
@@ -85,13 +122,6 @@ div#welcome-screen {
   width: 300px;
 }
 
-
-
-
-
-
-
-
 /* create new button on dashboard */
 
 .logo-create-new {
@@ -102,19 +132,6 @@ div#welcome-screen {
 
   /* background-image: linear-gradient(to right, white, #65ddd3, #11a8a1); */
 }
-
-/* .logo{
-  text-align: center;
-  border-radius: 10px;
-  width: 40%;
-  height: 100px;
-  margin: 10px;
-  padding: 20px;
-} */
-
-
-
-
 
 
 .create-new-destination-btn{
@@ -130,8 +147,8 @@ div#welcome-screen {
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
-  border-color: white;
-  
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
 }
 
 
@@ -152,7 +169,7 @@ div#welcome-screen {
 .google-maps {
   border-radius: 10px;
   width: 60%;
-  height: 81vh;
+  height: 83vh;
   margin: 10px;
   padding: 20px;
   /* border: 2px solid #33988A; */
@@ -176,11 +193,7 @@ div#welcome-screen {
   margin-top: 10px;
   border-radius: 10px;
   width: 40%;
-  max-height: 80vh;
-  /* margin: 10px; */
-  /* padding: 20px; */
-  /* border: 2px solid #33988A; */
-  /* background-color: white; */
+  max-height: 82vh;
 }
 
 .destinations-list h4 {
@@ -192,7 +205,6 @@ div#welcome-screen {
 
 .new-dest-btn-div{
   justify-content: center;
-  border-radius: 10px;
   width: 100%;
   /* margin: 10px; */
   /* padding: 5px; */
@@ -220,7 +232,7 @@ div#welcome-screen {
 .visited {
   height: 75%;
   overflow-y: scroll;
-  font-size: 20px;
+  font-size: 15px;
   color: black;
   background-color: white;
 }
@@ -238,7 +250,7 @@ div#welcome-screen {
 .not-visited {
   height: 75%;
   overflow-y: scroll;
-  font-size: 20px;
+  font-size: 15px;
   color: black;
   background-color: white;
 }
@@ -246,23 +258,21 @@ div#welcome-screen {
   color: #33988A;
 }
 
-
-/* .create-new-destination-btn:hover{
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  cursor: pointer;
-} */
-
 .destination-form {
   margin-top: 10px;
-  border-radius: 10px;
-  width: 37.5%;
-  max-height: 81vh;
+  border-radius: 5px;
+  width: 40%;
+  max-height: 83vh;
   background-color: white;
-  padding: 20px;
+  padding: 10px;
   text-align: left;
   overflow-y: auto;
+}
+
+* { 
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+   box-sizing: border-box; 
 }
 
 .destination-form .input-text {
@@ -337,26 +347,11 @@ div#welcome-screen {
 }
 
 
-
-/* .destination-form #submitbtn:hover {
--webkit-transform: scale(1.2);
--ms-transform: scale(1.2);
-transform: scale(1.2);
-} */
-
-/* .show-card {
-  width: 40%;
-  height: 700px;
-  margin: 10px;
-  padding: 20px;
-  border: 2px solid #33988A;
-} */
-
 .show-card {
   margin-top: 10px;
-  border-radius: 10px;
-  width: 37.5%;
-  max-height: 81vh;
+  border-radius: 5px;
+  width: 40%;
+  max-height: 83vh;
   background-color: white;
   padding: 20px;
   text-align: left;
@@ -366,23 +361,49 @@ transform: scale(1.2);
   font-family: Helvetica, sans-serif;
 }
 
+.show-card h2 {
+  text-align: center;
+}
+
+
+.show-card-btns {
+  display: flex;
+}
+
 #edit-destination-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+  display: inline-block;
 }
 
 #delete-destination-btn{
-  background-color: #b14a1e;
-  padding: 10px;
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+  display: inline-block;
 }
 
 li {
@@ -471,6 +492,7 @@ li {
 
 
 .account-info-card {
+  font-family: Helvetica, sans-serif;
   border-radius: 10px;
   background-color: white;
   overflow-y: auto;
@@ -484,6 +506,7 @@ li {
 }
 
 .edit-account-card {
+  font-family: Helvetica, sans-serif;
   border-radius: 10px;
   background-color: white;
   overflow-y: auto;
@@ -496,24 +519,44 @@ li {
   box-shadow: 3px 4px grey
 }
 
+.update-dest-btns {
+  display: flex;
+}
+
 #edit-account-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+  display: inline-block;
 }
 
 #update-account-btn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+  display: inline-block;
 }
 
 .edit-destination-div {
@@ -536,21 +579,39 @@ li {
 }
 
 #updateDestBtn{
-  background-color: #33988A;
-  padding: 10px;
-  margin: 5px;
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+  display: inline-block;
 }
 
 .cancelDestUpdateBtn{
-  padding: 10px;
+  width: 50%;
+  padding: 20px;
+  margin:0 0.3em 0.3em 0;
+  border-radius:0.2em;
+  box-sizing: border-box;
+  text-decoration:none;
   font-family: Helvetica, sans-serif;
-  font-size: 15px;
-  border-radius: 10px;
-  cursor: pointer;
+  font-size: 20px;
+  color:#33988A;
+  background-color:white;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  text-align:center;
+  border-color: rgba(215, 215, 215, 0.975);
+  border-width: .5px;
+  display: inline-block;
 }
 
 #updated-name{
