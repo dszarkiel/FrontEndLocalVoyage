@@ -152,10 +152,16 @@ function submitSignUp(e) {
     })
     .then(resp => resp.json())
     .then(user => {
-        renderDashboard(user)
+        if (user.error) {
+            alert(user.error);
+            signUPForm.reset()
+            showSignUpDiv()
+        } else{
+            renderDashboard(user)
+            logInUL.hidden = true
+            userUL.hidden = false
+        }
     })
-    logInUL.hidden = true
-    userUL.hidden = false
 }
 
 ///////////////// SIGN OUT LOGIC //////////////
@@ -366,28 +372,51 @@ function makeNewDestCard(destination){
     name.innerText = destination.name
     // const img = document.createElement('img')
     // img.src = destination.image
+    const dateVisitedHeader = document.createElement('h4')
+    dateVisitedHeader.innerText = "Date Visited:"
     const dateVisited = document.createElement('p')
-    dateVisited.innerText = `Date: ${destination.date_visited}`
+    dateVisited.innerText = `${destination.date_visited}`
     if (destination.date_visited === "" && destination.visited) {
         dateVisited.innerText = "Date: Please enter the date you attended!"
     }
-    const address = document.createElement('p')
-    address.innerText = ` Address: ${destination.address}`
-    const category = document.createElement('p')
-    category.innerText = `Category: ${destination.category}`
-    const comment = document.createElement('p')
-    comment.innerText = `Comments: ${destination.comment}`
 
+    const addressHeader = document.createElement('h4')
+    addressHeader.innerText = "Address:"
+    const address = document.createElement('p')
+    address.innerText = `${destination.address}`
+
+    const categoryHeader = document.createElement('h4')
+    categoryHeader.innerText = "Category:"
+    const category = document.createElement('p')
+    category.innerText = `${destination.category}`
+
+    const commentHeader = document.createElement('h4')
+    commentHeader.innerText = "Comment:"
+    const comment = document.createElement('p')
+    comment.classList.add("comment-text-area")
+    comment.innerText = `${destination.comment}`
+
+    const visitedHeader = document.createElement('h4')
+    visitedHeader.innerText = "Visited:"
     const visited = document.createElement('p')
     if (destination.visited) {
-        visited.innerHTML = "Visited: &#9989;"
+        visited.innerHTML = "&#9989;"
     } else {
-        visited.innerHTML = "Visited: &#10060;"
+        visited.innerHTML = "&#10060;"
     }
+
+    const costHeader = document.createElement('h4')
+    costHeader.innerText = "Cost:"
     const cost = document.createElement('p')
     cost.innerText = `Cost: $${destination.cost}`
+    
+    const attendeesHeader = document.createElement('h4')
+    attendeesHeader.innerText = "Attendees:"
     const attendees = document.createElement('p')
-    attendees.innerText = `Attendees: ${destination.attendees}`
+    attendees.innerText = `${destination.attendees}`
+
+    const ratingHeader = document.createElement('h4')
+    ratingHeader.innerText = "Your Rating:"
     const rating = document.createElement('p')
     rating.innerText = `${destination.rating} stars`
     const hr1 = document.createElement('hr')
@@ -410,7 +439,7 @@ function makeNewDestCard(destination){
     deleteBtn.addEventListener("click", deleteDestination)
 
     btnDiv.append(editBtn, deleteBtn)
-    showCard.append(exitBtn, name, hr1, dateVisited, address, category, visited, cost, attendees, hr2, comment, rating, hr3, btnDiv)
+    showCard.append(exitBtn, name, hr1, dateVisitedHeader, dateVisited, addressHeader, address, categoryHeader, category, visitedHeader, visited, costHeader, cost, attendeesHeader, attendees, hr2, commentHeader, comment, ratingHeader, rating, hr3, btnDiv)
     
     destinationList.hidden = true
     showCard.hidden = false

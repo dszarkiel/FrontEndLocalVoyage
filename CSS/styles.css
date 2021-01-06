@@ -4,7 +4,6 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  cursor: pointer;
 }
 
 .user-nav {
@@ -13,20 +12,48 @@
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  cursor: pointer;
 }
+
+
 
 html, body {
   margin: 0;
   height: 100%;
   overflow-y: hidden;
-  background-image: url(../assets/images/ChicagoMap.png);
+  background-image: url(../assets/images/backgroundImage.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: 0px 46px;
   /* background-attachment: fixed; */
 }
 
+#welcome-screen {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  padding: 10px;
+  max-height: 100;
+}
+
+#welcome-image {
+  text-align: right;
+  border-radius: 10px;
+  width: 60%;
+  max-height: 83vh;
+  margin-top: 150px;
+  padding: 20px;
+  display: inline-block;
+}
+
+#welcome-text{
+  text-align: left;
+  margin-top: 300px;
+  margin-right: 100px;
+  border-radius: 10px;
+  width: 40%;
+  max-height: 82vh;
+  display: inline-block;
+}
 
 
 .sign-in-card {
@@ -35,11 +62,20 @@ html, body {
   height: 460px;
   margin: 100px auto;
   padding: 30px;
-  border: 1px solid #141415;
+  /* border: 1px solid #141415; */
   border-radius: 19px;
   text-align: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.701);
 }
+
+.sign-in-card img{
+  background-color: rgba(255, 255, 255, 0);
+  height: 200px;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+}
+
 .sign-in-form {
   margin-top: 50px;
 }
@@ -52,12 +88,13 @@ html, body {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color: rgba(2, 112, 127, 0.975);
   background-color:white;
-  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(215, 59, 59, 0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
+  cursor: pointer;
 }
 
 .sign-up-card {
@@ -66,10 +103,10 @@ html, body {
   height: 460px;
   margin: 100px auto;
   padding: 30px;
-  border: 1px solid #141415;
+  /* border: 1px solid #141415; */
   border-radius: 19px;
   text-align: center;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.755);
 }
 
 #sign-up-submit-btn {
@@ -81,12 +118,13 @@ html, body {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
+  cursor: pointer;
 }
 
 .nav-link {
@@ -97,6 +135,7 @@ html, body {
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .user-greeting {
@@ -110,23 +149,11 @@ html, body {
 }
 
 .nav-link:hover {
-  background-color: #33988A;
+  background-color: rgba(2, 112, 127, 0.975);
 }
 
-div#welcome-screen {
-  display: block;
-  align-items: center;
-  justify-content: center;
-  width: auto;
-  height: auto;
-}
 
-.welcome-image {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  margin: auto;
-}
+
 
 .input-text {
   width: 300px;
@@ -153,12 +180,30 @@ div#welcome-screen {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
+  cursor: pointer;
+}
+
+.show-card .comment-text-area {
+  max-height: 300px;
+  overflow-y: scroll;
+  
+}
+
+.show-card h4{
+  margin-bottom: 3px;
+  margin-top: 10px;
+  color:rgba(2, 112, 127, 0.975);
+}
+
+.show-card p{
+  margin-bottom: 15px;
+  margin-top: 3px;
 }
 
 
@@ -182,12 +227,12 @@ div#welcome-screen {
   height: 83vh;
   margin: 10px;
   padding: 20px;
-  /* border: 2px solid #33988A; */
+  /* border: 2px solid rgba(2, 112, 127, 0.975); */
   background-color: white;
 }
 
 .google-maps .firstHeading:hover {
-  color: #33988A;
+  color: rgba(2, 112, 127, 0.975);
   cursor: pointer;
 }
 
@@ -219,16 +264,7 @@ div#welcome-screen {
   /* margin: 10px; */
   /* padding: 5px; */
 }
-.create-new-destination-btn {
-  /* background-color: #33988A; */
-  /* padding: 20px; */
-  text-align: center;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 5px;
-  width: 100%;
-  cursor: pointer;
-}
+
 
 .visited-div{
   margin-top: 5px;
@@ -238,6 +274,7 @@ div#welcome-screen {
   background-color: white;
   bottom: 0;
   max-height: 400px;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 .visited {
   height: 75%;
@@ -247,7 +284,7 @@ div#welcome-screen {
   background-color: white;
 }
 .visited li:hover {
-  color: #33988A;
+  color: rgba(2, 112, 127, 0.975);
 }
 
 .not-visited-div{
@@ -256,6 +293,8 @@ div#welcome-screen {
   height: 43%;
   background-color: white;
   max-height: 400px;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
+  
 }
 .not-visited {
   height: 75%;
@@ -265,7 +304,7 @@ div#welcome-screen {
   background-color: white;
 }
 .not-visited li:hover {
-  color: #33988A;
+  color: rgba(2, 112, 127, 0.975);
 }
 
 .destination-form {
@@ -277,6 +316,7 @@ div#welcome-screen {
   padding: 10px;
   text-align: left;
   overflow-y: auto;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 
 * { 
@@ -307,13 +347,14 @@ div#welcome-screen {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .destination-form-buttons{
@@ -330,17 +371,18 @@ div#welcome-screen {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .new-destination-form h2 {
-  color: #33988A;
+  color: rgba(2, 112, 127, 0.975);
   text-align: center;
   margin: 5px;
 }
@@ -356,7 +398,7 @@ div#welcome-screen {
   text-align: left;
   overflow-y: auto;
   padding: 20px;
-  box-shadow: 3px 4px grey;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(215, 59, 59, 0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   font-family: Helvetica, sans-serif;
 }
 
@@ -378,13 +420,14 @@ div#welcome-screen {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 #delete-destination-btn{
@@ -396,16 +439,17 @@ div#welcome-screen {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
-li {
+.destinations-list li {
   cursor: pointer;
   font-family: Helvetica, sans-serif;
 }
@@ -421,35 +465,31 @@ li {
   float: right;
   text-align: right;
   cursor: pointer;
-  font-weight: bolder;
-  font-size: 15px;
-  
+  font-size: 22px;
 }
 
 .show-card span:hover {
-  color: red;
+  color:rgba(2, 112, 127, 0.975);
 }
 
 .account-info-card span:hover {
-  color: red;
+  color:rgba(2, 112, 127, 0.975);
 }
 .edit-account-card span:hover {
-  color: red;
+  color:rgba(2, 112, 127, 0.975);
 }
 .edit-account-card span {
   float: right;
   text-align: right;
   cursor: pointer;
-  font-weight: bolder;
-  font-size: 15px;
+  font-size: 22px;
   font-family: Helvetica, sans-serif;
 }
 .account-info-card span {
   float: right;
   text-align: right;
   cursor: pointer;
-  font-weight: bolder;
-  font-size: 15px;
+  font-size: 22px;
   font-family: Helvetica, sans-serif;
 }
 
@@ -503,7 +543,7 @@ li {
   text-align: center;
   overflow-y: auto;
   padding: 20px;
-  box-shadow: 3px 4px grey;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   font-family: Helvetica, sans-serif;
 }
 
@@ -517,7 +557,7 @@ li {
   text-align: center;
   overflow-y: auto;
   padding: 20px;
-  box-shadow: 3px 4px grey;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   font-family: Helvetica, sans-serif;
 }
 
@@ -534,13 +574,14 @@ li {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 #update-account-btn{
@@ -552,13 +593,14 @@ li {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .edit-destination-div {
@@ -571,7 +613,7 @@ li {
   text-align: left;
   overflow-y: auto;
   padding: 20px;
-  box-shadow: 3px 4px grey;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   font-family: Helvetica, sans-serif;
 }
 
@@ -595,13 +637,14 @@ li {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 .cancelDestUpdateBtn{
@@ -613,13 +656,14 @@ li {
   text-decoration:none;
   font-family: Helvetica, sans-serif;
   font-size: 20px;
-  color:#33988A;
+  color:rgba(2, 112, 127, 0.975);
   background-color:white;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   text-align:center;
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+  cursor: pointer;
 }
 
 #updated-name{
