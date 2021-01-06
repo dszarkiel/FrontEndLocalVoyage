@@ -4,6 +4,7 @@ fetchAllDestinations();
 
 //////////// SHOW USER DASHBOARD //////////// 
 function renderDashboard(user) {
+    renderWelcomeMessage(user)
     currentUser = user
     userDashboard.style.display = "flex"
     // secondDashboardDiv.style.display = "flex"
@@ -112,6 +113,14 @@ function submitSignIn(e){
         signUpDiv.hidden = false
     }
 }
+
+//////////// RENDERS WELCOME MESSAGE IN NAV BAR FOR USER //////////// 
+function renderWelcomeMessage(user){
+    let welcomeMessage = document.querySelector("#greeting")
+    welcomeMessage.innerText = `Welcome ${user.first_name}!`
+}
+
+
 
 //////////// SIGN UP LOGIC //////////// 
 signUp.addEventListener("click", () => {

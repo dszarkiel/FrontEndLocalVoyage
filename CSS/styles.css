@@ -99,6 +99,16 @@ html, body {
   text-decoration: none;
 }
 
+.user-greeting {
+  font-family: Helvetica, sans-serif;
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
 .nav-link:hover {
   background-color: #33988A;
 }
@@ -310,23 +320,6 @@ div#welcome-screen {
   display: flex;
 }
 
-/* .destination-form .cancelFormBtn:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-} */
-
-
-/* .destination-form #submitbtn {
-  background-color: #33988A;
-  padding: 10px;
-  margin-left: 10px;
-  margin-top: 5px;
-  font-family: Helvetica, sans-serif;
-  font-size: 20px;
-  border-radius: 10px;
-  cursor: pointer;
-} */
 
 .destination-form #submitbtn {
   width: 50%;
@@ -344,6 +337,12 @@ div#welcome-screen {
   border-color: rgba(215, 215, 215, 0.975);
   border-width: .5px;
   display: inline-block;
+}
+
+.new-destination-form h2 {
+  color: #33988A;
+  text-align: center;
+  margin: 5px;
 }
 
 
@@ -455,6 +454,7 @@ li {
 }
 
 #google-search {
+  margin-top: 0;
   width: 98%;
 }
 
@@ -475,7 +475,9 @@ li {
 }
 #comment{
   width: 98%;
-  height: 100px;
+  font-family: Helvetica, sans-serif;
+  resize: none;
+  /* height: 100px; */
 }
 
 #cost{
@@ -492,31 +494,31 @@ li {
 
 
 .account-info-card {
-  font-family: Helvetica, sans-serif;
-  border-radius: 10px;
-  background-color: white;
-  overflow-y: auto;
-  text-align: center;
-  /* border: 2px solid #33988A; */
-  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
   width: 40%;
-  height: 700px;
-  margin: 10px;
-  box-shadow: 3px 4px grey
+  max-height: 83vh;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 3px 4px grey;
+  font-family: Helvetica, sans-serif;
 }
 
 .edit-account-card {
-  font-family: Helvetica, sans-serif;
-  border-radius: 10px;
-  background-color: white;
-  overflow-y: auto;
-  text-align: center;
-  /* border: 2px solid #33988A; */
-  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
   width: 40%;
-  height: 700px;
-  margin: 10px;
-  box-shadow: 3px 4px grey
+  max-height: 83vh;
+  background-color: white;
+  padding: 20px;
+  text-align: center;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 3px 4px grey;
+  font-family: Helvetica, sans-serif;
 }
 
 .update-dest-btns {
@@ -560,16 +562,22 @@ li {
 }
 
 .edit-destination-div {
-  border-radius: 10px;
-  background-color: white;
-  overflow-y: auto;
-  text-align: left;
-  /* border: 2px solid #33988A; */
-  padding: 20px;
+  margin-top: 10px;
+  border-radius: 5px;
   width: 40%;
-  height: 700px;
-  margin: 10px;
-  box-shadow: 3px 4px grey
+  max-height: 83vh;
+  background-color: white;
+  padding: 20px;
+  text-align: left;
+  overflow-y: auto;
+  padding: 20px;
+  box-shadow: 3px 4px grey;
+  font-family: Helvetica, sans-serif;
+}
+
+.edit-destination-div h2 {
+    text-align: center;
+    margin: 5px;
 }
 
 .edit-destination-div .input-text {
@@ -627,7 +635,9 @@ li {
 }
 #updated-comment{
   width: 98%;
-  height: 100px;
+  font-family: Helvetica, sans-serif;
+  resize: none;
+  /* height: 100px; */
 }
 
 #updated-cost{
@@ -642,7 +652,7 @@ li {
   width: 40%;
 }
 
-.edit-destination-div h4{
+.edit-destination-div h5{
   font-family: Helvetica, sans-serif;
   width: 40%;
   margin-top: 10px;

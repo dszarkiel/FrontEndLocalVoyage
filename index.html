@@ -17,8 +17,7 @@
         </ul>
 
         <ul class = "user-nav" hidden=true>
-          <li id="greeting" class="nav-link">Welcome to Local Voyage!</li>
-          <li id="dashboard" class="nav-link">Dashboard</li>
+          <li id="greeting" class="user-greeting"></li>
           <li id="account-view" class="nav-link">Account</li>
           <li id="sign-out" class="nav-link">Log Out</li>
         </ul>
@@ -92,7 +91,7 @@
 
       <div class="destination-form" hidden=true>
         <form class="new-destination-form">
-          <h2>Where to next?<style></style></h2>
+          <h2>Where to next?</h2><hr>
           <input type="text" name="google-search" placeholder="GOOGLE SEARCH" class="input-text" id="google-search"/>
           <br>
           <input type="text" name="name" placeholder="Name" class="input-text" id="name"/>
@@ -110,7 +109,7 @@
           <input type="radio" class="radio" id="not-visited" name="visited" value=false>
           <label for="not-visited">No</label><br>
 
-          <input type="text" name="comment" placeholder="Please enter any comments or memories" class="input-text" id="comment"/>
+          <textarea type="text" rows="4" name="comment" placeholder="Please enter any comments or memories" class="input-text" id="comment"></textarea>
           <br>
 
           <input type="text" name="cost" placeholder="Please enter your total cost" class="input-text" id="cost"/>
@@ -134,13 +133,14 @@
 
       <div class="edit-destination-div" hidden=true>
         <form class="edit-destination-form">
-          <h4>Name:</h4>
+          <h2>Update Your Destination Details:</h2><hr>
+          <h5>Name:</h5>
           <input type="text" name="updated-name" placeholder="Name" class="input-text" id="updated-name"/>
-          <h4>Date Visited:</h4>
+          <h5>Date Visited:</h5>
           <input type="text" name="updated-date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"id="updated-date"/>
-          <h4>Category:</h4>
+          <h5>Category:</h5>
           <input type="text" name="updated-category" placeholder="Category" class="input-text"id="updated-category"/>
-          <h4>Comments:</h4>
+          <h5>Comments:</h5>
           <input type="text" name="updated-comment" placeholder="Please enter any comments" class="input-text"id="updated-comment"/>
           <br>
           <h3>Have you visited this location yet?</h3>
@@ -149,11 +149,11 @@
           
           <input type="radio" class="radio" name="updatedVisited" value=false checked="checked" id="updated-not-visited">
           <label for="updated-not-visited">No</label><br>
-          <h4>Cost:</h4>
+          <h5>Cost:</h5>
           <input type="text" name="updated-cost" placeholder="Please enter your total cost" class="input-text" id="updated-cost"/>
-          <h4>Attendees:</h4>
+          <h5>Attendees:</h5>
           <input type="text" name="updated-attendees" placeholder="Who was in attendance?" class="input-text" id="updated-attendees"/>
-          <h4>Rating:</h4>
+          <h5>Rating:</h5>
           <input type="text" name="updated-rating" placeholder="Rating: One of out five" class="input-text" id="updated-rating"/><br>
           <br>
           <div class="update-dest-btns">
