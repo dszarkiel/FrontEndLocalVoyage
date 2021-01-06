@@ -229,7 +229,7 @@ function renderMapMarker(map) {
         })
     }
 }
-
+let errorMsg;
 //////////// ADDS DESTINATION MARKERS TO MAP  //////////// 
 newDestinationForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -257,16 +257,18 @@ newDestinationForm.addEventListener("submit", (e) => {
     })
     .then(response => response.json())
     .then(dest => {
-        addMarker(dest, map)
-        //////////SAM ADDED ////////
-        addNewDestination(dest)
+        if (dest.error) {
+            alert(dest.error);
+            newDestinationForm.reset()
+        } else {
+            newDestinationForm.reset() 
+            destinationList.hidden = false
+            destinationFormDiv.hidden = true
+            addMarker(dest, map)
+            addNewDestination(dest)
+        }
     })
-    newDestinationForm.reset() 
-    destinationList.hidden = false
-    destinationFormDiv.hidden = true
-
 })
-
 
 ////////// RENDER NEW GOOGLE MAP MARKER //////////////
 function addMarker(dest, map) {
