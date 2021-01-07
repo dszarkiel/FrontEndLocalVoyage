@@ -54,7 +54,11 @@ let firstName = document.querySelector(".account-info-card #first_name");
 let lastName = document.querySelector(".account-info-card #last_name");
 let email = document.querySelector(".account-info-card #email");
 
-
+const starOne = document.createElement("span")
+const starTwo = document.createElement("span")
+const starThree = document.createElement("span")
+const starFour = document.createElement("span")
+const starFive = document.createElement("span")
 
 //////////// EVENT LISTENER FOR GOOGLE MAPS ///////////
 googleMaps.addEventListener("click", googleMapShowCard)
@@ -119,8 +123,6 @@ function renderWelcomeMessage(user){
     let welcomeMessage = document.querySelector("#greeting")
     welcomeMessage.innerText = `Welcome ${user.first_name}!`
 }
-
-
 
 //////////// SIGN UP LOGIC //////////// 
 signUp.addEventListener("click", () => {
@@ -417,8 +419,26 @@ function makeNewDestCard(destination){
 
     const ratingHeader = document.createElement('h4')
     ratingHeader.innerText = "Your Rating:"
-    const rating = document.createElement('p')
-    rating.innerText = `${destination.rating} stars`
+
+    starOne.setAttribute("class", "fa fa-star")
+    starOne.setAttribute("id", "star-one")
+
+    starTwo.setAttribute("class", "fa fa-star")
+    starTwo.setAttribute("id", "star-two")
+
+    starThree.setAttribute("class", "fa fa-star")
+    starThree.setAttribute("id", "star-three")
+
+    starFour.setAttribute("class", "fa fa-star")
+    starFour.setAttribute("id", "star-four")
+
+    starFive.setAttribute("class", "fa fa-star")
+    starFive.setAttribute("id", "star-five")
+
+    const rating = document.createElement("p")
+    rating.append(starFive, starFour, starThree, starTwo, starOne) 
+    renderRatingStars(destination)
+
     const hr1 = document.createElement('hr')
     const hr2 = document.createElement('hr')
     const hr3 = document.createElement('hr')
@@ -443,6 +463,35 @@ function makeNewDestCard(destination){
     
     destinationList.hidden = true
     showCard.hidden = false
+}
+
+////////// RENDER RATING STARS BASED ON DEST RATING //////////////
+function renderRatingStars(dest){
+    if(dest.rating === 1){
+        starOne.setAttribute("class", "fa fa-star checked")
+    }
+    if(dest.rating === 2){
+        starOne.setAttribute("class", "fa fa-star checked")
+        star.Two.setAttribute("class", "fa fa-star checked")
+    }
+    if(dest.rating === 3){
+        starOne.setAttribute("class", "fa fa-star checked")
+        starTwo.setAttribute("class", "fa fa-star checked")
+        starThree.setAttribute("class", "fa fa-star checked")
+    }
+    if(dest.rating === 4){
+        starOne.setAttribute("class", "fa fa-star checked")
+        starTwo.setAttribute("class", "fa fa-star checked")
+        starThree.setAttribute("class", "fa fa-star checked")
+        starFour.setAttribute("class", "fa fa-star checked")
+    }
+    if(dest.rating === 5){
+        starOne.setAttribute("class", "fa fa-star checked")
+        starTwo.setAttribute("class", "fa fa-star checked")
+        starThree.setAttribute("class", "fa fa-star checked")
+        starFour.setAttribute("class", "fa fa-star checked")
+        starFive.setAttribute("class", "fa fa-star checked")
+    }
 }
 
 ////////// GET CURRENT INFO ON DEST THAT IS GETTING UPDATED //////////////

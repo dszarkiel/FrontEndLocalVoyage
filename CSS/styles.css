@@ -206,7 +206,6 @@ html, body {
   margin-top: 3px;
 }
 
-
 /* DASHBOARD */
 .dashboard {
   display: none;
@@ -249,6 +248,8 @@ html, body {
   border-radius: 10px;
   width: 40%;
   max-height: 82vh;
+  overflow: scroll;
+  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 
 .destinations-list h4 {
@@ -268,16 +269,16 @@ html, body {
 
 .visited-div{
   margin-top: 5px;
+  overflow-y: scroll;
   border-radius: 5px;
   padding: 5px;
-  height: 44%;
   background-color: white;
   bottom: 0;
-  max-height: 400px;
+  height: 43%;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 .visited {
-  height: 75%;
+  max-height: 60%;
   overflow-y: scroll;
   font-size: 15px;
   color: black;
@@ -288,19 +289,19 @@ html, body {
 }
 
 .not-visited-div{
+  overflow: scroll;
   border-radius: 5px;
   padding: 5px;
-  height: 43%;
   background-color: white;
-  max-height: 400px;
+  height: 43%;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   
 }
 .not-visited {
-  height: 75%;
-  overflow-y: scroll;
+  max-height: 60%;
   font-size: 15px;
   color: black;
+  overflow: scroll;
   background-color: white;
 }
 .not-visited li:hover {
@@ -406,6 +407,23 @@ html, body {
   text-align: center;
 }
 
+.checked {
+  color: rgba(29, 196, 197, 0.975);
+  border-color: black;
+}
+
+.fa fa-star span{
+  float: left;
+}
+
+.show-card p span{
+  float: left;
+}
+
+.show-card p span:hover {
+  color: rgba(29, 196, 197, 0.975);
+  cursor: auto;
+}
 
 .show-card-btns {
   display: flex;
