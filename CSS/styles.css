@@ -200,9 +200,8 @@ html, body {
 }
 
 .show-card .comment-text-area {
-  max-height: 300px;
+  max-height: 170px;
   overflow-y: scroll;
-  
 }
 
 .show-card h4{
@@ -252,9 +251,8 @@ html, body {
   margin-top: 10px;
   border-radius: 10px;
   width: 40%;
-  max-height: 82vh;
+  max-height: 89vh;
   overflow: scroll;
-  box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 
 .destinations-list h4 {
@@ -283,7 +281,7 @@ html, body {
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
 }
 .visited {
-  max-height: 60%;
+  max-height: 80%;
   overflow-y: scroll;
   font-size: 15px;
   color: black;
@@ -293,17 +291,22 @@ html, body {
   color: rgba(2, 112, 127, 0.975);
 }
 
+::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 .not-visited-div{
   overflow: scroll;
   border-radius: 5px;
-  padding: 5px;
+  /* padding: 5px; */
   background-color: white;
   height: 43%;
   box-shadow:inset 0 -0.6em 1em -0.35em rgba(0,0,0,0.17),inset 0 0.6em 2em -0.3em rgba(255,255,255,0.15),inset 0 0 0em 0.05em rgba(255,255,255,0.12);
   
 }
 .not-visited {
-  max-height: 60%;
+  max-height: 80%;
   font-size: 15px;
   color: black;
   overflow: scroll;
@@ -421,10 +424,10 @@ html, body {
   float: left;
 }
 
-.show-card p span:hover {
+/* .show-card p span:hover {
   color: rgba(29, 196, 197, 0.975);
   cursor: auto;
-}
+} */
 
 .show-card-btns {
   display: flex;

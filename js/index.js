@@ -368,12 +368,12 @@ function renderCard(e) {
 function makeNewDestCard(destination){
     showCard.innerHTML = ""
     const exitBtn = document.createElement("span")
+    // exitBtn.classList.add("exit-btn")
     exitBtn.innerText = "X"
     exitBtn.addEventListener("click", exitOut)
     const name = document.createElement('h2')
     name.innerText = destination.name
-    // const img = document.createElement('img')
-    // img.src = destination.image
+
     const dateVisitedHeader = document.createElement('h4')
     dateVisitedHeader.innerText = "Date Visited:"
     const dateVisited = document.createElement('p')
@@ -410,7 +410,7 @@ function makeNewDestCard(destination){
     const costHeader = document.createElement('h4')
     costHeader.innerText = "Cost:"
     const cost = document.createElement('p')
-    cost.innerText = `Cost: $${destination.cost}`
+    cost.innerText = `$${destination.cost}`
     
     const attendeesHeader = document.createElement('h4')
     attendeesHeader.innerText = "Attendees:"
@@ -554,12 +554,16 @@ function patchUpdateDest(e){
     })
     .then(response => response.json())
     .then(dest => {
+        if (dest.error) {
+            alert(dest.error);
+        } else {
         makeNewDestCard(dest)
         editDestDiv.hidden = true
         removeOutdatedLi(dest);
         addNewDestination(dest)
         addMarker(dest, map)
-    })
+    }
+})
 }
 
 ////////// CANCEL BTN OUT OF UPDATE DEST FORM  /////////////
@@ -649,9 +653,13 @@ function updateAccount(e){
     })
     .then(response => response.json())
     .then(newUserInfo => {
+        if (newUserInfo.error) {
+            alert(newUserInfo.error);
+        } else {
         renderAccountInfo(newUserInfo)
         currentUser = newUserInfo
-    })
+    }
+})
 }
 
 ///////// Delete Destination //////////
@@ -664,7 +672,7 @@ function deleteDestination(e){
     .then(dest => {
         removeOutdatedLi(dest);
         fetchAllDestinations();
-        setTimeout(function(){renderMapMarker(map)}, 10)
+        setTimeout(function(){renderMapMarker(map)}, 50)
     })
     showCard.hidden = true
     destinationList.hidden = false  

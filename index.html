@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>TravelLog</title>
+    <title>Local Voyage</title>
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="./js/index.js"></script>
@@ -117,12 +117,12 @@
           <input type="radio" class="radio" id="not-visited" name="visited" value=false>
           <label for="not-visited">No</label><br>
 
-          <input type="text" name="date" placeholder="Date Visited: MM/DD/YYYY" class="input-text" id="date-visited"/>
+          <input type="text" name="date" placeholder="MM/DD/YYYY" class="input-text" id="date-visited"/>
 
           <textarea type="text" rows="4" name="comment" placeholder="Please enter any comments or memories" class="input-text" id="comment"></textarea>
           <br>
 
-          <input type="text" name="cost" placeholder="How much money did you spend here?" class="input-text" id="cost"/>
+          <input type="number" name="cost" placeholder="How much money did you spend here?" class="input-text" id="cost"/>
           <br>
           <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text" id="attendees"/>
           <br>
@@ -149,7 +149,7 @@
           <h5>Category:</h5>
           <input type="text" name="updated-category" placeholder="Category" class="input-text"id="updated-category"/>
           <h5>Comments:</h5>
-          <input type="text" name="updated-comment" placeholder="Please enter any comments" class="input-text"id="updated-comment"/>
+          <textarea rows="4 "type="text" name="updated-comment" placeholder="Please enter any comments" class="input-text"id="updated-comment"/></textarea>
           <br>
           <h3>Have you visited this location yet?</h3>
           <input type="radio" class="radio" name="updatedVisited" value=true id="updated-visited">
@@ -159,10 +159,10 @@
           <label for="updated-not-visited">No</label><br>
 
           <h5>Date Visited:</h5>
-          <input type="text" name="updated-date" placeholder="Date Visited: MM/DD/YYYY" class="input-text"id="updated-date"/>
+          <input type="text" name="updated-date" placeholder="MM/DD/YYYY" class="input-text"id="updated-date"/>
           
           <h5>Cost:</h5>
-          <input type="text" name="updated-cost" placeholder="Please enter your total cost" class="input-text" id="updated-cost"/>
+          <input type="number" name="updated-cost" placeholder="How much money did you spend here?" class="input-text" id="updated-cost"/>
           <h5>Attendees:</h5>
           <input type="text" name="updated-attendees" placeholder="Who was in attendance?" class="input-text" id="updated-attendees"/>
           <h5>Rating:</h5>
@@ -180,19 +180,20 @@
 
         <div class="account-info-card" hidden=true>
           <span id="account-exit">X</span>
-          <h2>Account Information</h3>
+          <h2>Account Information</h3><hr>
           <h4>First Name:</h4>
           <p id="first_name"></p>
           <h4>Last Name:</h4>
           <p id="last_name"></p>
           <h4>Email:</h4>
           <p id="email"></p>
-          <button id="edit-account-btn">Edit Account</button>
+          <button id="edit-account-btn">Edit Account</button><hr><br><br><br><br>
+          <img src="./assets/images/signInLogo.png" >
         </div>
 
         <div class="edit-account-card" hidden=true>
           <span id="edit-account-exit">X</span>
-          <h2>Account Information</h3>
+          <h2>Account Information</h3><hr>
           <form id="edit-account-form">
             <h4>First Name:</h4>
             <input type="text" id="new-first-name" />
@@ -201,7 +202,8 @@
             <h4>Email:</h4>
             <input type="text" id="new-email" /><br><br>
             <input type="submit" name="submit" value="Update Account" id="update-account-btn" />
-          </form>
+          </form><hr><br><br><br><br>
+          <img src="./assets/images/signInLogo.png" >
         </div>
 
 
