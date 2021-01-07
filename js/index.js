@@ -284,7 +284,7 @@ function addMarker(dest, map) {
         let marker = new google.maps.Marker({
             position:{lat: dest.latitude, lng: dest.longitude},
             map:map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+            icon: './assets/images/blue-visited-marker.png'
         })
 
         let objectDetails =`<h4 id=${dest.id} class="firstHeading">${dest.name}</h4>` + 
@@ -302,7 +302,7 @@ function addMarker(dest, map) {
         let marker = new google.maps.Marker({
             position:{lat: dest.latitude, lng: dest.longitude},
             map:map,
-            icon: 'http://maps.google.com/mapfiles/ms/icons/red-dot.png'
+            icon: './assets/images/red-notVisited-marker.png'
         })
 
         let objectDetails =`<h4 id=${dest.id} class="firstHeading">${dest.name}</h4>` + 
@@ -610,7 +610,6 @@ function renderAccountInfo(user) {
 
     let userEditBtn = document.querySelector(".account-info-card #edit-account-btn")
     userEditBtn.addEventListener("click", renderEditAccountForm)
-    
 }
 
 ////////// RENDER EDIT ACCOUNT FORM AND POPULATE WITH EXISTING DATA//////////////
