@@ -21,6 +21,7 @@
           <li id="greeting" class="user-greeting"></li>
           <li id="account-view" class="nav-link">Account</li>
           <li id="sign-out" class="nav-link">Log Out</li>
+          <img id="lv-logo" src= "./assets/images/smaller-logo.png">
         </ul>
       </div>
     </header>
@@ -30,20 +31,17 @@
         <ul>
           <h1 class="welcome-text-title">LOCAL VOYAGE</h1>
           <hr>
-          <h3>The unsocial media app to map out places you've visited, mark places anywhere in the world to visit, and write memories about each one. Your own personal journal of your unique voyage through life! </h3>
-          <h3>Please Sign In or Create an Account Above</h3>
+          <h3>The <i>non-social media</i> app to map out places you've visited, mark places anywhere in the world to visit, and write memories about each one. Your own personal journal of your unique voyage through life! </h3>
+          <h3>Please <i>Sign In</i> or <i>Create an Account</i> Above</h3>
         </ul>
       </div>
-      <!-- <div id="welcome-image">
-        <img src="./assets/images/city-map-4-1106969.png">
-      </div> -->
     </div>
     
     <div class="sign-in-card" hidden=true>
-      <h1>LOCAL VOYAGE</h1>
-      
+      <!-- <h1>LOCAL VOYAGE</h1> -->
+      <img id="sign-in-logo" src="./assets/images/signInLogo.png" >
       <form class="sign-in-form">
-      <h3>Please enter your email address:<br></h3>
+      <h3>Please enter your email address:</h3>
       <input type="text" name="email" placeholder="Email Address" class="input-text"/><br><br><br>
       <input type="submit" name="submit" value="Sign In" id="sign-in-submit-btn"/>
       </form>
@@ -51,12 +49,13 @@
 
     <div class="sign-up-card" hidden=true>
       <form class="sign-up-form">
-        <h3>First Name:<br></h3>
+        <img src="./assets/images/signUpLogo.png" >
+        <h3 id="firstNameSignUpH3">First Name:</h3>
         <input type="text" name="first-name" placeholder="Please enter your first name" class="input-text"/><br>
-        <h3>Last Name:<br></h3>
+        <h3>Last Name:</h3>
         <input type="text" name="last-name" placeholder="Please enter your last name" class="input-text"/><br>
-        <h3>Email Address:<br></h3> 
-        <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br><br><br><br><br>
+        <h3>Email Address:</h3> 
+        <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br>
         <input type="submit" name="submit" value="Create Account" id="sign-up-submit-btn" />
       </form>
     </div>
