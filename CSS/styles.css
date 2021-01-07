@@ -213,10 +213,6 @@ html, body {
   max-width: 100%;
   padding: 10px;
   max-height: 100;
-  /* flex-wrap: wrap; */
-  /* background-image: url(../assets/images/ChicagoMap.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
 }
 
 
@@ -226,7 +222,6 @@ html, body {
   height: 83vh;
   margin: 10px;
   padding: 20px;
-  /* border: 2px solid rgba(2, 112, 127, 0.975); */
   background-color: white;
 }
 
@@ -410,10 +405,6 @@ html, body {
 .checked {
   color: rgba(29, 196, 197, 0.975);
   border-color: black;
-}
-
-.fa fa-star span{
-  float: left;
 }
 
 .show-card p span{

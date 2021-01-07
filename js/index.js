@@ -436,7 +436,7 @@ function makeNewDestCard(destination){
     starFive.setAttribute("id", "star-five")
 
     const rating = document.createElement("p")
-    rating.append(starFive, starFour, starThree, starTwo, starOne) 
+    rating.append(starOne, starTwo, starThree, starFour, starFive) 
     renderRatingStars(destination)
 
     const hr1 = document.createElement('hr')
@@ -472,7 +472,7 @@ function renderRatingStars(dest){
     }
     if(dest.rating === 2){
         starOne.setAttribute("class", "fa fa-star checked")
-        star.Two.setAttribute("class", "fa fa-star checked")
+        starTwo.setAttribute("class", "fa fa-star checked")
     }
     if(dest.rating === 3){
         starOne.setAttribute("class", "fa fa-star checked")
