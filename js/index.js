@@ -368,7 +368,7 @@ function renderCard(e) {
 function makeNewDestCard(destination){
     showCard.innerHTML = ""
     const exitBtn = document.createElement("span")
-    // exitBtn.classList.add("exit-btn")
+    exitBtn.classList.add("exit-btn")
     exitBtn.innerText = "X"
     exitBtn.addEventListener("click", exitOut)
     const name = document.createElement('h2')
@@ -442,6 +442,7 @@ function makeNewDestCard(destination){
     const hr1 = document.createElement('hr')
     const hr2 = document.createElement('hr')
     const hr3 = document.createElement('hr')
+    const br1 = document.createElement('br')
 
     const btnDiv = document.createElement("div")
     btnDiv.classList.add("show-card-btns")
@@ -459,7 +460,7 @@ function makeNewDestCard(destination){
     deleteBtn.addEventListener("click", deleteDestination)
 
     btnDiv.append(editBtn, deleteBtn)
-    showCard.append(exitBtn, name, hr1, dateVisitedHeader, dateVisited, addressHeader, address, categoryHeader, category, visitedHeader, visited, costHeader, cost, attendeesHeader, attendees, hr2, commentHeader, comment, ratingHeader, rating, hr3, btnDiv)
+    showCard.append(exitBtn, name, hr1, dateVisitedHeader, dateVisited, addressHeader, address, categoryHeader, category, visitedHeader, visited, costHeader, cost, attendeesHeader, attendees, hr2, commentHeader, comment, ratingHeader, rating, br1, hr3, btnDiv)
     
     destinationList.hidden = true
     showCard.hidden = false

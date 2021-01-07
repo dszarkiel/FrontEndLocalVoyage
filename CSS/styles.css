@@ -483,15 +483,23 @@ html, body {
   background: #fff 
 }
 
-.show-card span {
+/* .show-card span {
+
+}
+
+.show-card span:hover {
+} */
+
+.exit-btn {
   float: right;
   text-align: right;
   cursor: pointer;
   font-size: 22px;
 }
 
-.show-card span:hover {
+.exit-btn:hover {
   color:rgba(2, 112, 127, 0.975);
+
 }
 
 .account-info-card span:hover {
