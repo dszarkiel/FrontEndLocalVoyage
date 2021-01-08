@@ -2,20 +2,213 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>TravelLog</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Local Voyage</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script defer src="./js/index.js"></script>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFn14dEc1lJ4aSY2DqfiWtYQl9pFyGiCM&libraries=places&callback=initMap"></script>
   </head>
+  
   <body>
-
     <header>
+      <div>
+        <ul class = "nav">
+          <li id="sign-in" class="nav-link">Sign In</li>
+          <li id="sign-up" class = "nav-link">Create Account</li>
+        </ul>
 
+        <ul class = "user-nav" hidden=true>
+          <li id="greeting" class="user-greeting"></li>
+          <li id="account-view" class="nav-link">Account</li>
+          <li id="sign-out" class="nav-link">Log Out</li>
+          <img id="lv-logo" src= "./assets/images/smaller-logo.png">
+        </ul>
+      </div>
     </header>
+    
+    <div id="welcome-screen" hidden=false>
+      <div id="welcome-text">
+        <ul>
+          <h1 class="welcome-text-title">LOCAL VOYAGE</h1>
+          <hr>
+          <h3>The <i>non-social media</i> app to map out places you've visited, mark places anywhere in the world to visit, and write memories about each one. Your own personal journal of your unique voyage through life! </h3>
+          <h3>Please <i>Sign In</i> or <i>Create an Account</i> Above</h3>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="sign-in-card" hidden=true>
+      <!-- <h1>LOCAL VOYAGE</h1> -->
+      <img id="sign-in-logo" src="./assets/images/signInLogo.png" >
+      <form class="sign-in-form">
+      <h3>Please enter your email address:</h3>
+      <input type="text" name="email" placeholder="Email Address" class="input-text"/><br><br><br>
+      <input type="submit" name="submit" value="Sign In" id="sign-in-submit-btn"/>
+      </form>
+    </div>
 
-    <main>
+    <div class="sign-up-card" hidden=true>
+      <form class="sign-up-form">
+        <img src="./assets/images/signUpLogo.png" >
+        <h3 id="firstNameSignUpH3">First Name:</h3>
+        <input type="text" name="first-name" placeholder="Please enter your first name" class="input-text"/><br>
+        <h3>Last Name:</h3>
+        <input type="text" name="last-name" placeholder="Please enter your last name" class="input-text"/><br>
+        <h3>Email Address:</h3> 
+        <input type="text" name="email" placeholder="Please enter your email" class="input-text"/><br><br>
+        <input type="submit" name="submit" value="Create Account" id="sign-up-submit-btn" />
+      </form>
+    </div>
 
-    </main>
+    
+    <!-- removed the width and height from the dashboard -->
+    <div class="dashboard" hidden=true>
+    
+      <div class="google-maps">
+      </div>
 
+      
+
+      <div class="destinations-list">
+        
+        <div class="new-dest-btn-div">
+          <button type="button" class="create-new-destination-btn">CREATE NEW DESTINATION </button>
+        </div><br>
+
+        <div class="not-visited-div">
+          <h4>PLACES TO EXPLORE:</h4>
+          <hr>
+          <div class="not-visited">
+            <ul class="not-visited-ul">
+            </ul>
+          </div>
+        </div>  
+        <br>
+
+        <div class="visited-div">
+          <h4>PLACES VISITED:</h4>
+          <hr>
+          <div class="visited">
+            <ul class="visited-ul">
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      
+
+      <div class="destination-form" hidden=true>
+        <form class="new-destination-form">
+          <h2>Where to next?</h2><hr>
+          <input type="text" name="google-search" placeholder="GOOGLE SEARCH" class="input-text" id="google-search"/>
+          <br>
+          <input type="text" name="name" placeholder="Name" class="input-text" id="name"/>
+          <br>
+         
+          <input type="text" name="address" placeholder="Please enter the address" class="input-text" id="address"/>
+          <br>
+          <input type="text" name="category" placeholder="Category" class="input-text" id="category"/><br>
+          
+          <h3>Have you visited this location yet?</h3>
+          <input type="radio" class="radio" id="visited" name="visited" value=true>
+          <label for="visited">Yes</label><br>
+          
+          <input type="radio" class="radio" id="not-visited" name="visited" value=false>
+          <label for="not-visited">No</label><br>
+
+          <input type="text" name="date" placeholder="MM/DD/YYYY" class="input-text" id="date-visited"/>
+
+          <textarea type="text" rows="4" name="comment" placeholder="Please enter any comments or memories" class="input-text" id="comment"></textarea>
+          <br>
+
+          <input type="number" name="cost" placeholder="How much money did you spend here?" class="input-text" id="cost"/>
+          <br>
+          <input type="text" name="attendees" placeholder="Who was in attendance?" class="input-text" id="attendees"/>
+          <br>
+          <input type="number" name="rating" placeholder="Rating: 1 to 5" class="input-text" id="rating"/><br>
+
+          <input type="text" name="latitude" class="input-text" id="latitude" hidden=true/>
+ 
+          <input type="text" name="longitude" class="input-text" id="longitude" hidden=true/><br>
+
+          <div class="destination-form-buttons">
+            <input id="submitbtn" type="submit" name="submit" value="Add Destination"/>
+            <button type="button" class="cancelFormBtn">Cancel</button>
+          </div>
+          
+        </form>
+      </div>
+
+
+      <div class="edit-destination-div" hidden=true>
+        <form class="edit-destination-form">
+          <h2>Update Your Destination Details:</h2><hr>
+          <h5>Name:</h5>
+          <input type="text" name="updated-name" placeholder="Name" class="input-text" id="updated-name"/>
+          <h5>Category:</h5>
+          <input type="text" name="updated-category" placeholder="Category" class="input-text"id="updated-category"/>
+          <h5>Comments:</h5>
+          <textarea rows="4 "type="text" name="updated-comment" placeholder="Please enter any comments" class="input-text"id="updated-comment"/></textarea>
+          <br>
+          <h3>Have you visited this location yet?</h3>
+          <input type="radio" class="radio" name="updatedVisited" value=true id="updated-visited">
+          <label for="updated-visited">Yes</label><br>
+          
+          <input type="radio" class="radio" name="updatedVisited" value=false checked="checked" id="updated-not-visited">
+          <label for="updated-not-visited">No</label><br>
+
+          <h5>Date Visited:</h5>
+          <input type="text" name="updated-date" placeholder="MM/DD/YYYY" class="input-text"id="updated-date"/>
+          
+          <h5>Cost:</h5>
+          <input type="number" name="updated-cost" placeholder="How much money did you spend here?" class="input-text" id="updated-cost"/>
+          <h5>Attendees:</h5>
+          <input type="text" name="updated-attendees" placeholder="Who was in attendance?" class="input-text" id="updated-attendees"/>
+          <h5>Rating:</h5>
+          <input type="number" name="updated-rating" placeholder="Rating: 1 to 5" class="input-text" id="updated-rating"/><br>
+          <br>
+          <div class="update-dest-btns">
+            <input id="updateDestBtn" type="submit" name="submit" value="Update Destination"/>
+            <button type="button" class="cancelDestUpdateBtn">Cancel</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="show-card" hidden=true>
+        </div>
+
+        <div class="account-info-card" hidden=true>
+          <span id="account-exit">X</span>
+          <h2>Account Information</h3><hr>
+          <h4>First Name:</h4>
+          <p id="first_name"></p>
+          <h4>Last Name:</h4>
+          <p id="last_name"></p>
+          <h4>Email:</h4>
+          <p id="email"></p>
+          <button id="edit-account-btn">Edit Account</button><hr><br><br><br><br>
+          <img src="./assets/images/signInLogo.png" >
+        </div>
+
+        <div class="edit-account-card" hidden=true>
+          <span id="edit-account-exit">X</span>
+          <h2>Account Information</h3><hr>
+          <form id="edit-account-form">
+            <h4>First Name:</h4>
+            <input type="text" id="new-first-name" />
+            <h4>Last Name:</h4>
+            <input type="text" id="new-last-name" />
+            <h4>Email:</h4>
+            <input type="text" id="new-email" /><br><br>
+            <input type="submit" name="submit" value="Update Account" id="update-account-btn" />
+          </form><hr><br><br><br><br>
+          <img src="./assets/images/signInLogo.png" >
+        </div>
+
+
+    </div>
+  
 
   </body>
 </html>
