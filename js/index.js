@@ -7,7 +7,6 @@ function renderDashboard(user) {
     renderWelcomeMessage(user)
     currentUser = user
     userDashboard.style.display = "flex"
-    // secondDashboardDiv.style.display = "flex"
     initMap();
     initAutocomplete();
     renderMyDestinations();
@@ -220,7 +219,6 @@ function initAutocomplete() {
           document.querySelector("#address").value = nearPlace.formatted_address;
           document.querySelector("#latitude").value = nearPlace.geometry.location.lat();
           document.querySelector("#longitude").value = nearPlace.geometry.location.lng();
-
       })
 }
 
@@ -657,6 +655,7 @@ function updateAccount(e){
         if (newUserInfo.error) {
             alert(newUserInfo.error);
         } else {
+        renderWelcomeMessage(newUserInfo)
         renderAccountInfo(newUserInfo)
         currentUser = newUserInfo
     }
