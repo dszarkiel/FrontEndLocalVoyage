@@ -85,6 +85,9 @@ function fetchAllDestinations() {
     .then(resp => resp.json())
     .then(destObj => {
         allDestinations = destObj;
+            if (currentUser){
+                renderMapMarker(map);
+            }
     })
 } 
 
@@ -105,7 +108,6 @@ function submitSignIn(e){
     let userEmail = e.target["email"].value
     let currentUser = allUsers.find(user => user.email === userEmail)
     if (currentUser) {
-        console.log("was found")
         signInDiv.hidden = true
         logInUL.hidden = true
         userUL.hidden = false
@@ -672,7 +674,7 @@ function deleteDestination(e){
     .then(dest => {
         removeOutdatedLi(dest);
         fetchAllDestinations();
-        setTimeout(function(){renderMapMarker(map)}, 50)
+        
     })
     showCard.hidden = true
     destinationList.hidden = false  
