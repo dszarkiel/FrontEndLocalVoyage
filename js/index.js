@@ -677,3 +677,8 @@ function deleteDestination(e){
     showCard.hidden = true
     destinationList.hidden = false  
 }
+
+
+
+
+
